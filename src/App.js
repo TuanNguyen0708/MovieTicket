@@ -1,33 +1,26 @@
 import './App.css';
-import BaiTapTongHop from './BaiTapTongHop/BaiTapTongHop';
-import ChunkDemo from './Lodash/ChunkDemo';
-import CompareObjectArray from './Lodash/CompareObjectArray';
-import FillLodashDemo from './Lodash/FillLodashDemo';
-import FirstLastLodash from './Lodash/FirstLastLodash';
-import FlattenLodashDemo from './Lodash/FlattenLodashDemo';
-import IncludeLodashDemo from './Lodash/IncludeLodashDemo';
-import JoinDemo from './Lodash/JoinDemo';
-import SortLodashDEmo from './Lodash/SortLodashDEmo';
-import UniqLodashDemo from './Lodash/UniqLodashDemo';
-import DemoGrid from './TailwindComponent/DemoGrid'
-import PaddingMarginDemo from './TailwindComponent/PaddingMarginDemo'
+import {createBrowserHistory} from 'history'
+import { Route, Router, Switch } from 'react-router-dom';
+import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
+import Home from './pages/Home/Home';
+import Contact from './pages/Contact/Contact';
+import News from './pages/News/News';
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+export const history = createBrowserHistory()
 
 function App() {
   return (
-    <div className="App">
-      {/* <DemoGrid /> */}
-      {/* <PaddingMarginDemo /> */}
-      {/* <JoinDemo /> */}
-      {/* <FirstLastLodash /> */}
-      {/* <ChunkDemo /> */}
-      {/* <FillLodashDemo /> */}
-      {/* <SortLodashDEmo /> */}
-      {/* <IncludeLodashDemo /> */}
-      {/* <UniqLodashDemo /> */}
-      {/* <FlattenLodashDemo /> */}
-      {/* <CompareObjectArray /> */}
-      <BaiTapTongHop />
-    </div>
+    <Router history={history}>
+      <Switch>
+      <HomeTemplate path='/home' exact Component={Home} />
+      <HomeTemplate path='/contact' exact Component={Contact} />
+      <HomeTemplate path='/news' exact Component={News} />
+      <Route path='/login' exact Component={News} />
+      <Route path='/register' exact Component={Login} />
+      <HomeTemplate path='/' exact Component={Register} />
+      </Switch>
+    </Router>
   );
 }
 
