@@ -1,13 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { history } from '../../../../App'
 
 export default function Header(props) {
     return (
         <header className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 text-white bg-opacity-40 bg-black fixed w-full z-10">
             <div className="container flex justify-between h-16 mx-auto">
-                <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
+                <NavLink to='/' aria-label="Back to homepage" className="flex items-center p-2">
                     <img src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
-                </a>
+                </NavLink>
                 <ul className="items-stretch hidden space-x-3 lg:flex">
                     <li className="flex">
                         <NavLink to='/home' className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-violet-600 boder-violet-600 text-white" activeClassName='border-b-2 border-white'>Home</NavLink>
@@ -20,7 +21,9 @@ export default function Header(props) {
                     </li>
                 </ul>
                 <div className="items-center flex-shrink-0 hidden lg:flex">
-                    <button className="self-center px-8 py-3 rounded">Sign in</button>
+                    <button className="self-center px-8 py-3 rounded" onClick={() => {
+                        history.push('/login')
+                    }} >Sign in</button>
                     <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-coolGray-900">Sign up</button>
                 </div>
                 <button className="p-4 lg:hidden">

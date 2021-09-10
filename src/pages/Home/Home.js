@@ -30,10 +30,6 @@ export default function Home() {
         <div>
             <HomeCarousel />
             <div className='container'>
-
-
-
-
                 <MultipleRowSlick arrPhim={arrPhim} />
                 {/* <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto">
@@ -42,7 +38,6 @@ export default function Home() {
                     </div>
                 </div>
             </section> */}
-
                 <HomeMenu heThongRapChieu={heThongRapChieu} />
             </div>
         </div>
