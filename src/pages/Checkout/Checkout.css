@@ -1,0 +1,35 @@
+.ghe { /*ghế thường*/
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    background-color: rgb(123,122,123);
+    color: #fff;
+  
+  }
+  
+  .gheDaDat {
+    margin: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: rgb(182, 65, 56);
+    cursor: no-drop;
+  }
+  
+  .gheDangDat {
+    border-radius: 5px;
+    background-color: rgb(35, 189, 61) !important;
+  }
+  
+  .gheVip {
+    border-radius: 5px;
+    background-color: rgb(247, 184, 12);
+  }
+
+  .gheMinhDat {
+    background-color: rgb(16, 192, 236);
+    color: white;
+    text-shadow: 2px 2px rgb(33, 133, 201);
+  }
