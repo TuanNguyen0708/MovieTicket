@@ -10,26 +10,23 @@
   }
   
   .gheDaDat {
-    margin: 15px;
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
     background-color: rgb(182, 65, 56);
     cursor: no-drop;
   }
   
   .gheDangDat {
-    border-radius: 5px;
     background-color: rgb(35, 189, 61) !important;
   }
   
   .gheVip {
-    border-radius: 5px;
     background-color: rgb(247, 184, 12);
   }
 
   .gheMinhDat {
-    background-color: rgb(16, 192, 236);
-    color: white;
-    text-shadow: 2px 2px rgb(33, 133, 201);
+    background-color: rgb(254, 255, 255);
+    color: orange;
+    border: 1px solid orange;
+    box-shadow: 1px 27px 45px 1px rgba(31,2,2,0.47);
+    -webkit-box-shadow: 1px 27px 45px 1px rgba(31,2,2,0.47);
+    -moz-box-shadow: 1px 27px 45px 1px rgba(31,2,2,0.47);
   }

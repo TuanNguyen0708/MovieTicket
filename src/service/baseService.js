@@ -1,5 +1,5 @@
 import Axios from "axios"
-import { DOMAIN, TOKEN_CYBERSOFT } from "../util/settings/config"
+import { DOMAIN, TOKEN, TOKEN_CYBERSOFT } from "../util/settings/config"
 
 export class baseService {
     //put json về phía backend
@@ -22,6 +22,7 @@ export class baseService {
             data:model,
             // headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //JWT
             headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
                 'TokenCybersoft': TOKEN_CYBERSOFT, 
                 'accept': 'application/json', 
             }
