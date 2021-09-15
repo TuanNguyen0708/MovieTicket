@@ -30,3 +30,8 @@
     -webkit-box-shadow: 1px 27px 45px 1px rgba(31,2,2,0.47);
     -moz-box-shadow: 1px 27px 45px 1px rgba(31,2,2,0.47);
   }
+
+  .gheKhachDangDat {
+    background-color: purple !important;
+    cursor: no-drop;
+  }

@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { LayChiTietPhongVeAction, QuanLyDatVeAction } from '../../redux/actions/QuanLyDatVeAction'
+import { datGheAction, LayChiTietPhongVeAction, QuanLyDatVeAction } from '../../redux/actions/QuanLyDatVeAction'
 import style from './Checkout.module.css'
 import './Checkout.css'
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType'
@@ -8,11 +8,12 @@ import _ from 'lodash'
 import { Tabs } from 'antd';
 import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction'
 import moment from 'moment'
+import { connection } from '../../index'
 
 function Checkout(props) {
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
-    const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.QuanLyDatVeReducer)
+    const { chiTietPhongVe, danhSachGheDangDat, danhSachGheKhachDat } = useSelector(state => state.QuanLyDatVeReducer)
 
     const dispatch = useDispatch();
 
@@ -22,6 +23,13 @@ function Checkout(props) {
         const action = LayChiTietPhongVeAction(props.match.params.id)
         //Dispatch function này đi
         dispatch(action)
+
+        //load danh sách ghế đang đặt từ server về
+        connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
+            console.log('danhSachGheKhachDat',dsGheKhachDat);
+        })
+
+
     }, [])
     console.log(chiTietPhongVe, 'chiTietPhongVe')
 
@@ -34,7 +42,6 @@ function Checkout(props) {
             let classGheDD = '';
             let classGheMinhDat = '';
             //kiểm tra từng ghế render xem có trong mảng ghế đang đặt hay không?
-
             let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === ghe.maGhe);
             if (indexGheDD != -1) {
                 classGheDaDat = 'gheDangDat'
@@ -43,17 +50,21 @@ function Checkout(props) {
             if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
                 classGheMinhDat = 'gheMinhDat'
             }
+            //Kiểm tra từng render xem có phải ghế khách đặt hay không
+            let classGheKhachDat = '';
+            let indexGheKD = danhSachGheKhachDat.findIndex(gheKD=>gheKD.maGhe === ghe.maGhe)
+            if(indexGheKD != -1){
+                classGheKhachDat = 'gheKhachDangDat'
+            }
 
 
 
             return <Fragment key={index} >
-                <button disabled={ghe.daDat} className={`ghe ${classGheVip}  ${classGheDaDat} ${classGheDD} ${classGheMinhDat}`} onClick={() => {
-                    dispatch({
-                        type: DAT_VE,
-                        gheDuocChon: ghe
-                    })
+                <button disabled={ghe.daDat || classGheKhachDat != ''} className={`ghe ${classGheVip}  ${classGheDaDat} ${classGheDD} ${classGheMinhDat} ${classGheKhachDat}`} onClick={() => {
+                    const action = datGheAction(ghe,props.match.params.id);
+                    dispatch(action);
                 }} >
-                    {ghe.daDat === true ? <span className='font-bold'>X</span> : ghe.stt}
+                    {ghe.daDat === true ? <span className='font-bold'>X</span> : classGheKhachDat != '' ? <span className='font-bold'>O</span> : ghe.stt}
                 </button>
 
 
@@ -87,6 +98,7 @@ function Checkout(props) {
                                     <th>Ghế Đang Đặt</th>
                                     <th>Ghế Víp</th>
                                     <th>Ghế Mình Đặt</th>
+                                    <th>Ghế Khách Đặt</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,6 +108,7 @@ function Checkout(props) {
                                     <td><button className='ghe gheDangDat'>X</button></td>
                                     <td><button className='ghe gheVip'>X</button></td>
                                     <td><button className='ghe gheMinhDat'>X</button></td>
+                                    <td><button className='ghe gheKhachDangDat'>X</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -163,9 +176,19 @@ function callback(key) {
     console.log(key);
 }
 
-export default function (props) {
+export default function CheckoutTab(props) {
+
+    const {tabActive} = useSelector(state=>state.QuanLyDatVeReducer)
+    const dispatch = useDispatch();
+
+
     return <div className='p-5'>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key)=> {
+            dispatch({
+                type: 'CHANGE_TAB_ACTIVE',
+                number: key
+            })
+        }}>
             <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
                 <Checkout {...props} />
             </TabPane>
@@ -198,7 +221,7 @@ function KetQuaDatVe(props) {
                         <h2 className="text-gray-500 mb-3">Ngày Chiếu: {moment(ticket.ngayDat).format('hh:mm A')} - {moment(ticket.ngayDat).format('DD/MM/YYYY')}</h2>
                         <h2 className="text-gray-500 mb-3">{_.first(ticket.danhSachGhe).tenCumRap} - Ghế: {ticket.danhSachGhe?.map((ghe,index)=> {
                             return <span key={index}>
-                               {ghe.tenGhe}
+                               [{ghe.tenGhe}]
                                
                             </span>
                         })}</h2>
