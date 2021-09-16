@@ -25,3 +25,4 @@ import { USE_LOGIN } from "../../util/settings/config";
     }} />
 }
 export default CheckoutTemplate
+

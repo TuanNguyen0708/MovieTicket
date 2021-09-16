@@ -45,7 +45,7 @@ export const QuanLyDatVeAction = (thongTinDatVe) => {
         }
     }
 }
-
+// no render nhieu qua anh, khong hieu sao no render lien tuc ;v
 export const datGheAction = (ghe,maLichChieu) => {
     // const maLichChieu = Number(maLichChieu)
     return async (dispatch,getState) => {

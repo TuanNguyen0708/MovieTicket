@@ -74,7 +74,7 @@ function Checkout(props) {
 
 
 
-    console.log(chiTietPhongVe, 'chiTietPhongVe')
+    // console.log(chiTietPhongVe, 'chiTietPhongVe')
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
@@ -233,7 +233,7 @@ export default function CheckoutTab(props) {
                 number: '1'
             })
         }
-    })
+    },[])
 
     const operations = <Fragment>
         {!_.isEmpty(userLogin) ? <Fragment> <button onClick={()=> {
