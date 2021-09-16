@@ -22,7 +22,7 @@ export const LayChiTietPhongVeAction = (maLichChieu) => {
 }
 
 export const QuanLyDatVeAction = (thongTinDatVe) => {
-    return async dispatch => {
+    return async (dispatch,getState) => {
         try {
             dispatch(displayLoadingAction)
             const result = await QLDatVe.quanLyDatVe(thongTinDatVe)
@@ -33,7 +33,10 @@ export const QuanLyDatVeAction = (thongTinDatVe) => {
                 type: DAT_VE_HOAN_TAT
             })
             await dispatch(hideLoadingAction)
-            dispatch({type:CHUYEN_TAB})
+            dispatch({type:CHUYEN_TAB});
+
+            // let userLogin = getState().QuanLyNguoiDungReducer.userLogin
+            // connection.invoke('datGheThanhCong',userLogin.taiKhoan)
 
         }catch(errors) {
             dispatch(hideLoadingAction)
@@ -44,8 +47,7 @@ export const QuanLyDatVeAction = (thongTinDatVe) => {
 }
 
 export const datGheAction = (ghe,maLichChieu) => {
-
-
+    // const maLichChieu = Number(maLichChieu)
     return async (dispatch,getState) => {
 
         //Đưa thông tin ghế lên reducer
@@ -58,15 +60,17 @@ export const datGheAction = (ghe,maLichChieu) => {
         let danhSachGheDangDat = getState().QuanLyDatVeReducer.danhSachGheDangDat;
         let taiKhoan = getState().QuanLyNguoiDungReducer.userLogin.taiKhoan;
 
-        console.log('taiKhoan',taiKhoan);
-        console.log('maLichChieu',typeof(maLichChieu) );
+        console.log('maLichChieu',maLichChieu );
         //Biến mảng thành chuỗi
+        taiKhoan = JSON.stringify(taiKhoan)
         danhSachGheDangDat = JSON.stringify(danhSachGheDangDat);
         console.log('danhSachGheDangDat',danhSachGheDangDat);
+        console.log('taiKhoan',taiKhoan );
+
 
 
         //Call api signalR
-        connection.invoke('datGhe',taiKhoan,danhSachGheDangDat,maLichChieu);
+        // connection.invoke('datGhe',taiKhoan,danhSachGheDangDat,maLichChieu);
 
 
 

@@ -13,6 +13,11 @@ import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
 import {Suspense, lazy} from 'react'
 import { UseTemplate } from './templates/UserTemplate/UseTemplate';
 import Loading from './components/Loading/Loading';
+import Profile from './Profile/Profile';
+import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import Dashboad from './pages/Admin/Dashboard/Dashboad';
+import Films from './pages/Admin/Films/Films';
+import Showtime from './pages/Admin/Showtime/Showtime';
 
 
 //const CheckoutTemplateLazy = lazy(()=> import('./templates/CheckoutTemplate/CheckoutTemplate.js'))
@@ -27,10 +32,16 @@ function App() {
       <HomeTemplate path='/home' exact Component={Home} />
       <HomeTemplate path='/contact' exact Component={Contact} />
       <HomeTemplate path='/detail/:id' exact Component={Detail} />
+      <HomeTemplate path='/profile' exact Component={Profile} />
+      <CheckoutTemplate path='/checkout/:id' exact Component={Checkout} />
       <HomeTemplate path='/news' exact Component={News} />
       <UseTemplate path='/login' exact Component={Login} />
-      <Route path='/register' exact component={Register} />
-      <CheckoutTemplate path='/checkout/:id' exact Component={Checkout} />
+      <UseTemplate path='/register' exact Component={Register} />
+
+      <AdminTemplate path='/admin' exact Component={Dashboad} />
+      <AdminTemplate path='/admin/films' exact Component={Films} />
+      <AdminTemplate path='/admin/users' exact Component={Dashboad} />
+      <AdminTemplate path='/admin/showtime' exact Component={Showtime} />
       </Switch>
       <HomeTemplate path='/' exact Component={Home} />
     </Router>

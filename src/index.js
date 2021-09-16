@@ -13,19 +13,22 @@ import 'antd/dist/antd.css';
 import { DOMAIN } from './util/settings/config';
 //Cấu hình realtime (websocket với signalR)
 import * as signalR from '@aspnet/signalr'
+//import đa ngôn ngữ
+import './i18next'
 
 //Đoạn code để kết nối đến server lắng nghe sự kiện từ server
-
 export const connection = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN}/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();
 
 
-connection.start().then(()=> {
+
+
+connection.start().then(() => {
+  console.log('thanh cong')
   ReactDOM.render(
     <Provider store={store}>
       <App />
-  
     </Provider>
-  ,
+    ,
     document.getElementById('root')
   );
 }).catch(errors => {
