@@ -13,6 +13,9 @@ export class QuanLyPhimService extends baseService{
     layDanhSachPhim = () => {
         return this.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`)
     }
+    themPhimUpLoadHinh = (formData) => {
+        return this.post(`api/QuanLyPhim/ThemPhimUploadHinh`,formData)
+    }
 }
 
 export const QL = new QuanLyPhimService()

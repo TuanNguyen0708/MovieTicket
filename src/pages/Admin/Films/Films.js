@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimActions';
 import { EditOutlined,DeleteOutlined } from '@ant-design/icons'
 import { NavLink } from 'react-router-dom';
+import { history } from '../../../App';
 
 
 const { Search } = Input;
@@ -96,7 +97,9 @@ function onChange(pagination, filters, sorter, extra) {
     return (
         <div>
             <h3 className='text-4xl'>Quản Lý Phim</h3>
-            <Button className='mb-3'>Thêm Phim</Button>
+            <Button className='mb-3' onClick={()=> {
+                history.push('/admin/films/addnew')
+            }}>Thêm Phim</Button>
             <Search
                 className='mb-5'
                 placeholder="input search text"

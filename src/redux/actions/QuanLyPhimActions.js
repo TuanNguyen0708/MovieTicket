@@ -17,3 +17,16 @@ export const layDanhSachPhimAction = () => {
         }
     }
 }
+
+export const themPhimUpLoadHinhAction = (formData) => {
+    return async (dispatch)=> {
+        try {
+            let result = await QL.themPhimUpLoadHinh(formData);
+                alert('Thêm Phim Thành Công')
+                console.log('result',result.data.content)
+            }
+        catch(errors) {
+                console.log('errors',errors.responst?.data)
+            }
+    }
+}
