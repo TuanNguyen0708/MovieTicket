@@ -23,7 +23,6 @@ export const layThongTinChiTietPhim = (id) => {
     return async dispatch => {
         try {
             const result = await QLRapService.layThongTinLichChieuPhim(id)
-            console.log(result,'result')
             //lấy được dữ liệu từ api về => đưa lên reducer
             dispatch({
                 type: SET_CHI_TIET_PHIM,

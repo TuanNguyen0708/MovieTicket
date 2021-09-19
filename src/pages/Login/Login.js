@@ -16,7 +16,6 @@ export default function Login(props) {
         onSubmit: values => {
             const action = dangNhapAction(values);
             dispatch(action)
-            console.log(values,'values')
         },
       });
 

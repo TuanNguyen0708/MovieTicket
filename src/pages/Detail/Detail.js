@@ -15,12 +15,10 @@ const { TabPane } = Tabs;
 export default function Detail(props) {
 
     const PhimDetail = useSelector(state => state.QuanLyPhimReducer.PhimDetail)
-    console.log({ PhimDetail })
     const dispatch = useDispatch()
     useEffect(() => {
         //lấy thông tin param ở url
         let { id } = props.match.params;
-        //console.log(id)
         dispatch(layThongTinChiTietPhim(id))
     }, [])
 

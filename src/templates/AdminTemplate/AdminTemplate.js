@@ -27,7 +27,7 @@ const AdminTemplate = (props) => { //path, exact, Component
     const [collapsed, setCollapsed] = useState(false);
 
     const onCollapse = collapsed => {
-        // console.log(collapsed);
+
         setCollapsed(collapsed);
     };
 

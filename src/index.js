@@ -23,7 +23,6 @@ export const connection = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN}/
 
 
 connection.start().then(() => {
-  console.log('thanh cong')
   ReactDOM.render(
     <Provider store={store}>
       <App />

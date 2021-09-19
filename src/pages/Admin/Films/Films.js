@@ -3,7 +3,7 @@ import { Button, Table } from 'antd';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimActions';
+import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/QuanLyPhimActions';
 import { EditOutlined,DeleteOutlined } from '@ant-design/icons'
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
@@ -14,7 +14,6 @@ const { Search } = Input;
 export default function Films() {
     const {arrPhimDefault} = useSelector(state=>state.QuanLyPhimReducer)
     const dispatch = useDispatch()
-    console.log(arrPhimDefault,'arrP')
     useEffect(()=> {
         dispatch(layDanhSachPhimAction());
     },[])
@@ -79,8 +78,14 @@ const columns = [
         dataIndex: 'hanhDong',
         render: (text,phim) => {
             return <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around'}}>
-                <NavLink to='/' className='text-green-500 text-3xl'><EditOutlined /></NavLink>
-                <NavLink to='/' className='text-red-500 text-3xl'><DeleteOutlined /></NavLink>
+                <NavLink key={1} to={`/admin/films/edit/${phim.maPhim}`} className='text-green-500 text-3xl'><EditOutlined /></NavLink>
+                <span style={{cursor:'pointer'}} key={2} className='text-red-500 text-3xl' onClick={()=> {
+                    //Gọi action Xóa
+                    if(window.confirm('Bạn có chắc muốn xóa phim ' + phim.tenPhim)) {
+                        //Gọi action 
+                        dispatch(xoaPhimAction(phim.maPhim))
+                    }
+                }}><DeleteOutlined /></span>
             </div>
         },
     },
@@ -107,7 +112,7 @@ function onChange(pagination, filters, sorter, extra) {
                 size="large"
                 onSearch={onSearch}
             />
-            <Table columns={columns} dataSource={data} onChange={onChange} />
+            <Table columns={columns} dataSource={data} onChange={onChange} rowKey={'maPhim'} />
         </div>
     )
 }

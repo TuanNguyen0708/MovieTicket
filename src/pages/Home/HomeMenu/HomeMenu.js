@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Tabs, Radio, Space } from 'antd';
+import { Tabs } from 'antd';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
@@ -64,7 +64,7 @@ export default function HomeMenu(props) {
 
     return (
         <>
-            <Tabs tabPosition={tabPosition}>
+            <Tabs tabPosition={tabPosition} style={{width:'80%', margin:'50px auto'}}>
                 {renderHeThongRap()}
             </Tabs>
         </>

@@ -3,11 +3,10 @@ import { useSelector } from 'react-redux'
 
 export default function HomeCarousel(props) {
     const {arrImg} = useSelector(state=>state.CarouselReducer)
-    console.log('arrImg',arrImg)
     const remderImg = () => {
         return arrImg.map((item,index) => {
             return <div key={index} className={`carousel-item ${index === 1 ? 'active' : ''}`}>
-                <div style={{backgroundImage:`url(${item.hinhAnh})`, backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat:'no-repeat', width:'100%', height:'600px', display:'block'}}>
+                <div style={{backgroundImage:`url(${item.hinhAnh})`, backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat:'no-repeat', width:'100%', height:'400px', display:'block'}}>
                 </div>
             </div>
         })

@@ -41,7 +41,6 @@ function Checkout(props) {
 
         //Load danh sách ghế đang đặt từ server về (lắng nghe tín hiệu từ server trả về)
         connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
-            console.log('danhSachGheKhachDat',dsGheKhachDat);
             //Bước 1: Loại mình ra khỏi danh sách 
             dsGheKhachDat = dsGheKhachDat.filter(item => item.taiKhoan !== userLogin.taiKhoan);
             //Bước 2 gộp danh sách ghế khách đặt ở tất cả user thành 1 mảng chung 
@@ -198,7 +197,6 @@ function Checkout(props) {
                             thongTinDatVe.maLichChieu = props.match.params.id;
                             thongTinDatVe.danhSachVe = danhSachGheDangDat;
 
-                            console.log(thongTinDatVe);
                             dispatch(QuanLyDatVeAction(thongTinDatVe))
                         }} >
                             ĐẶT VÉ
@@ -216,7 +214,6 @@ function Checkout(props) {
 const { TabPane } = Tabs;
 
 function callback(key) {
-    console.log(key);
 }
 
 export default function CheckoutTab(props) {
@@ -278,7 +275,6 @@ function KetQuaDatVe(props) {
         const action = layThongTinNguoiDungAction();
         dispatch(action)
     }, []);
-    console.log(thongTinNguoiDung, 'ttnd')
     const renderTicketItem = function () {
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             return <div className="p-4 lg:w-1/2" key={index}>
