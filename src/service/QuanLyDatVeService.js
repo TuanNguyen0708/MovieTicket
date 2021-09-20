@@ -1,5 +1,4 @@
 import { baseService } from "./baseService";
-import {GROUPID} from "../util/settings/config"
 
 export class QuanLyDatVeService extends baseService{
     constructor () {
@@ -11,6 +10,9 @@ export class QuanLyDatVeService extends baseService{
     }
     quanLyDatVe = (thongTinDatVe) => { 
         return this.post(`api/QuanLyDatVe/DatVe`, thongTinDatVe);
+    }
+    taoLichChieu = (thongTinLichChieu) => {
+        return this.post(`api/QuanLyDatVe/TaoLichChieu`, thongTinLichChieu);
     }
 
 }

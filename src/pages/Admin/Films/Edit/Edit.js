@@ -112,7 +112,7 @@ return (
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
-      <h1 className='mb-5'>Thêm Phim Mới</h1>
+      <h1 className='mb-5'>Chỉnh Sửa Phim</h1>
       <Form.Item label="Form Size" name="size">
         <Radio.Group>
           <Radio.Button value="small">Small</Radio.Button>

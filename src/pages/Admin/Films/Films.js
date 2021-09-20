@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect } from 'react'
 import { Button, Table } from 'antd';
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachPhimAction, xoaPhimAction } from '../../../redux/actions/QuanLyPhimActions';
-import { EditOutlined,DeleteOutlined } from '@ant-design/icons'
+import { EditOutlined,DeleteOutlined, CalendarOutlined } from '@ant-design/icons'
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
 
@@ -18,7 +17,10 @@ export default function Films() {
         dispatch(layDanhSachPhimAction());
     },[])
 
-const onSearch = value => console.log(value);
+const onSearch = value => {
+    //Gọi API layDanhSachPhim
+    dispatch(layDanhSachPhimAction(value))
+}
 
 const columns = [
     {   
@@ -77,15 +79,16 @@ const columns = [
         title: 'Hành Động',
         dataIndex: 'hanhDong',
         render: (text,phim) => {
-            return <div style={{display:'flex',flexDirection:'row', justifyContent:'space-around'}}>
-                <NavLink key={1} to={`/admin/films/edit/${phim.maPhim}`} className='text-green-500 text-3xl'><EditOutlined /></NavLink>
-                <span style={{cursor:'pointer'}} key={2} className='text-red-500 text-3xl' onClick={()=> {
+            return <div style={{display:'flex',flexDirection:'row', justifyContent:'space-between'}}>
+                <NavLink key={1} to={`/admin/films/edit/${phim.maPhim}/${phim.tenPhim}`} className='text-green-500 text-2xl'><EditOutlined /></NavLink>
+                <span style={{cursor:'pointer'}} key={2} className='text-red-500 text-2xl' onClick={()=> {
                     //Gọi action Xóa
                     if(window.confirm('Bạn có chắc muốn xóa phim ' + phim.tenPhim)) {
                         //Gọi action 
                         dispatch(xoaPhimAction(phim.maPhim))
                     }
                 }}><DeleteOutlined /></span>
+                <NavLink key={3} to={`/admin/films/showtime/${phim.maPhim}/${phim.tenPhim}`} className='text-green-500 text-2xl'><CalendarOutlined /></NavLink>
             </div>
         },
     },

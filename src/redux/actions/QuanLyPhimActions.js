@@ -2,11 +2,11 @@ import { QL } from '../../service/QuanLyPhimService'
 import {SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM} from './types/QuanLyPhimType'
 import { history } from '../../App'
 
-export const layDanhSachPhimAction = () => {
+export const layDanhSachPhimAction = (tenPhim='') => {
 
     return async (dispatch) => {
         try {
-            const result = await QL.layDanhSachPhim()
+            const result = await QL.layDanhSachPhim(tenPhim)
 
             dispatch({
                 type: SET_DANH_SACH_PHIM,

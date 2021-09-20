@@ -36,7 +36,9 @@ export class baseService {
             method:'GET',
             // headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
              headers: {
-                'TokenCybersoft': TOKEN_CYBERSOFT
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'TokenCybersoft': TOKEN_CYBERSOFT,
+                'accept': 'application/json', 
             }
         })
     }
