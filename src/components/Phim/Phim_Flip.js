@@ -1,9 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import './Phim_Flip.css'
 
-export default function Phim_Flip(props) {
 
+export default function Phim_Flip(props) {
+    const { t, i18n } = useTranslation();
     const {item} = props;
 
     return (
@@ -26,7 +28,7 @@ export default function Phim_Flip(props) {
                 </div>
             </div>
             <div className='bg-orange-300 text-center cursor-pointer py-2 mt-2 bg-indigo-300 text-success-50 font-bold'>
-                <NavLink to={`/detail/${item.maPhim}`} >ĐẶT VÉ</NavLink>
+                <NavLink to={`/detail/${item.maPhim}`} >{t('book ticket')}</NavLink>
             </div>
             
         </div>

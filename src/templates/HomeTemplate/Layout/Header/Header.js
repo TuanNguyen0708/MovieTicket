@@ -33,7 +33,7 @@ export default function Header(props) {
                 localStorage.removeItem(TOKEN);
                 history.push('/home');
                 window.location.reload();
-            }}>Đăng Xuất</button>
+            }}>{t('signout')}</button>
         </Fragment>
     }
     return (

@@ -1,9 +1,31 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useFormik } from 'formik'
+import { dangKyAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { useDispatch } from 'react-redux';
+import { GROUPID } from '../../util/settings/config';
 
-export default function Register() {
+export default function Register(props) {
+    const dispatch = useDispatch()
+    const formik = useFormik({
+        initialValues:{
+            taiKhoan:'',
+            matKhau:'',
+            email:'',
+            soDt:'',
+            hoTen:''
+        },
+        onSubmit: values => {
+            values.maNhom = GROUPID;
+            const action = dangKyAction(values);
+            dispatch(action)
+        }
+    })
+console.log(formik)
+
+
     return (
-        <form className="lg:w-1/2 xl:max-w-screen-sm">
+        <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm">
             <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
                 <div className="cursor-pointer flex items-center">
                     <div>
@@ -26,19 +48,19 @@ export default function Register() {
                     <div>
                         <div>
                             <div className="text-sm font-bold text-gray-700 tracking-wide">Tài Khoản</div>
-                            <input name="taiKhoan" className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào tài khoản" />
+                            <input name="taiKhoan" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào tài khoản" />
                         </div>
                         <div className='mt-8'>
                             <div className="text-sm font-bold text-gray-700 tracking-wide">Họ Tên</div>
-                            <input name="hoTen" className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào họ tên" />
+                            <input name="hoTen" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào họ tên" />
                         </div>
                         <div className='mt-8'>
                             <div className="text-sm font-bold text-gray-700 tracking-wide">Email</div>
-                            <input name="email" type='email' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào email" />
+                            <input name="email" onChange={formik.handleChange} type='email' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào email" />
                         </div>
                         <div className='mt-8'>
                             <div className="text-sm font-bold text-gray-700 tracking-wide">Số Điện Thoại</div>
-                            <input name="email" type='number' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào số điện thoại" />
+                            <input name="soDt" onChange={formik.handleChange} type='number' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào số điện thoại" />
                         </div>
                         <div className="mt-8">
                             <div className="flex justify-between items-center">
@@ -46,20 +68,12 @@ export default function Register() {
                                     Mật Khẩu
                                 </div>
                             </div>
-                            <input name="matKhau" className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type='password' placeholder="Nhập vào mật khẩu" />
-                        </div>
-                        <div className="mt-8">
-                            <div className="flex justify-between items-center">
-                                <div className="text-sm font-bold text-gray-700 tracking-wide">
-                                    Nhập Lại Mật Khẩu
-                                </div>
-                            </div>
-                            <input name="nhapLaiMatKhau" className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type='password' placeholder="Nhập vào mật khẩu" />
+                            <input name="matKhau" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type='password' placeholder="Nhập vào mật khẩu" />
                         </div>
                         <div className="mt-10">
                             <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                          shadow-lg">
+                          shadow-lg" type='submit'>
                                 Đăng Ký
                             </button>
                         </div>

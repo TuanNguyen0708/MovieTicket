@@ -13,6 +13,7 @@ import { history } from '../../App'
 import { TOKEN, USE_LOGIN } from '../../util/settings/config'
 import { NavLink } from 'react-router-dom'
 import { HomeOutlined } from '@ant-design/icons'
+import { useTranslation } from 'react-i18next'
 
 function Checkout(props) {
 
@@ -77,6 +78,8 @@ function Checkout(props) {
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
+
+
     const renderSeats = () => {
         return danhSachGhe?.map((ghe, index) => {
             let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : '';
@@ -116,7 +119,7 @@ function Checkout(props) {
             </Fragment>
         })
     }
-
+    const { t, i18n } = useTranslation();
     return (
         <div className='mt-5'>
             <div className='grid grid-cols-12'>
@@ -199,7 +202,7 @@ function Checkout(props) {
 
                             dispatch(QuanLyDatVeAction(thongTinDatVe))
                         }} >
-                            ĐẶT VÉ
+                            {t('book ticket')}
                         </div>
                     </div>
                 </div>

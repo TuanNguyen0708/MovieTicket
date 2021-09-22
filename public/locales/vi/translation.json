@@ -4,5 +4,25 @@
     "signup":"Đăng Nhập",
     "home": "Trang Chủ",
     "contact":"Liên Hệ",
-    "news":"Tin Tức"
+    "news":"Tin Tức",
+    "signout": "Đăng Xuất",
+    "playing movie": "Phim Đang Chiếu",
+    "upcoming movie": "Phim Sắp Chiếu",
+    "book ticket": "Đặt Vé",
+    "select seat and pay": "Chọn Ghế Và Thanh Toán",
+    "ticket booking results": "Kết Quả Đặt Vé",
+    "screen":"Màn Hình",
+    "unbooked seat": "Ghế Chưa Đặt",
+    "booked seat": "Ghế Đã Đặt",
+    "seat are being booked": "Ghế Đang Được Đặt",
+    "seat vip" : "Ghế Vip",
+    "my seat": "Ghế Mình Đặt",
+    "customer seat": "Ghế Khách Đặt",
+    "show date": "Ngày Chiếu",
+    "seat" : "Ghế",
+    "total amount" : "Thành Tiền",
+    "phone" : "Số Điện Thoại",
+    "booking history" : "Lịch Sử Đặt Vé",
+    "location" : "Địa Điểm"
+
 }

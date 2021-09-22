@@ -5,6 +5,7 @@ import Phim from '../Phim/Phim'
 import Phim_Flip from "../Phim/Phim_Flip";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../redux/actions/types/QuanLyPhimType";
+import { useTranslation } from "react-i18next";
 
 
 function SampleNextArrow(props) {
@@ -53,7 +54,7 @@ const MultipleRows = (props) => {
   let activeClassDC = dangChieu===true ? 'active_Film' : 'none_active_Film';
   let activeClassSC = sapChieu===true ? 'none_active_Film' : 'active_Film';
 
-
+  const { t, i18n } = useTranslation();
     const settings = {
       className: "center variable-width",
       centerMode: true,
@@ -72,11 +73,11 @@ const MultipleRows = (props) => {
         <button type="button" className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold rounded mr-3`} onClick={()=>{
           const action = {type:SET_PHIM_DANG_CHIEU}
           dispatch(action)
-        }} >PHIM ĐANG CHIẾU</button>
+        }} >{t('playing movie')}</button>
         <button type="button" className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold rounded border`} onClick={()=>{
           const action = {type:SET_PHIM_SAP_CHIEU}
           dispatch(action)
-        }} >PHIM SẮP CHIẾU</button>
+        }} >{t('upcoming movie')}</button>
         <Slider {...settings}>
           {renderPhim()}
         </Slider>
