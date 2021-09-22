@@ -119,6 +119,7 @@ function Checkout(props) {
             </Fragment>
         })
     }
+    
     const { t, i18n } = useTranslation();
     return (
         <div className='mt-5'>

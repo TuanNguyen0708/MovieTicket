@@ -40,6 +40,7 @@ function App() {
       <UseTemplate path='/login' exact Component={Login} />
       <UseTemplate path='/register' exact Component={Register} />
 
+
       <AdminTemplate path='/admin' exact Component={Dashboad} />
       <AdminTemplate path='/admin/films' exact Component={Films} />
       <AdminTemplate path='/admin/films/addnew' exact Component={AddNew} />

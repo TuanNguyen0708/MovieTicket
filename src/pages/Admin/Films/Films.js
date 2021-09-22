@@ -101,7 +101,6 @@ function onChange(pagination, filters, sorter, extra) {
 
 
 
-
     return (
         <div>
             <h3 className='text-4xl'>Quản Lý Phim</h3>

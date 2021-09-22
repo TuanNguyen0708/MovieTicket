@@ -105,6 +105,7 @@ return (
       wrapperCol={{
         span: 14,
       }}
+      
       layout="horizontal"
       initialValues={{
         size: componentSize,

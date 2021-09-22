@@ -19,6 +19,7 @@ export default function Login(props) {
         },
       });
 
+      
     return (
         <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm">
             <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
