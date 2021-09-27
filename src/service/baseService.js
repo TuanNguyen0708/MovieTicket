@@ -10,7 +10,9 @@ export class baseService {
             data:model,
             // headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //JWT
             headers: {
-                'TokenCybersoft': TOKEN_CYBERSOFT
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                'TokenCybersoft': TOKEN_CYBERSOFT, 
+                'accept': 'application/json', 
             }
         }) 
     }

@@ -77,27 +77,18 @@ const AdminTemplate = (props) => { //path, exact, Component
                                
                             </Menu.Item>
                             <Menu.Item key="11" icon={<FileOutlined />}>
-                            <NavLink to="/admin/films/addnew">Add new</NavLink>
-
-                               
+                            <NavLink to="/admin/films/addnew">Add new</NavLink>                              
                             </Menu.Item>
                         </SubMenu>
-                        <Menu.Item key="3" icon={<DesktopOutlined />}>
-                            <NavLink to="/admin/showtimes">Showtime</NavLink>
+                        <SubMenu key="sub2" icon={<FileOutlined />} title="QL Người Dùng">
+                            <Menu.Item key="12" icon={<FileOutlined />}>
+                                <NavLink to="/admin/quanlynguoidung">QL Người Dùng</NavLink>
+                            </Menu.Item>
+                            <Menu.Item key="13" icon={<FileOutlined />}>
+                            <NavLink to="/admin/quanlynguoidung/themnguoidung">Thêm Người Dùng</NavLink>                              
+                            </Menu.Item>
+                        </SubMenu>
 
-                        </Menu.Item>
-                        {/* <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                            <Menu.Item key="3">Tom</Menu.Item>
-                            <Menu.Item key="4">Bill</Menu.Item>
-                            <Menu.Item key="5">Alex</Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-                            <Menu.Item key="6">Team 1</Menu.Item>
-                            <Menu.Item key="8">Team 2</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item key="9" icon={<FileOutlined />}>
-                            Files
-                        </Menu.Item> */}
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
@@ -106,14 +97,12 @@ const AdminTemplate = (props) => { //path, exact, Component
                     </Header>
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
-                            {/* <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
                         </Breadcrumb>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: '85vh' }}>
                             <Component {...propsRoute} />
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+
                 </Layout>
             </Layout>
         </Fragment>

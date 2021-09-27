@@ -23,5 +23,16 @@
     "total amount" : "Thành Tiền",
     "phone" : "Số Điện Thoại",
     "booking history" : "Lịch Sử Đặt Vé",
-    "location" : "Địa Điểm"
+    "location" : "Địa Điểm",
+    "account": "Tài Khoản",
+    "password": "Mật Khẩu",
+    "forgot password": "Quên Mật Khẩu",
+    "no account" : "Chưa Có Tài Khoản",
+    "email" : "Email",
+    "full name": "Họ Tên",
+    "already have an account": "Đã Có Tài Khoản",
+    "rate" : "Đánh Giá",
+    "showtimes" : "Lịch Chiếu",
+    "information" : "Thông Tin"
+
 }

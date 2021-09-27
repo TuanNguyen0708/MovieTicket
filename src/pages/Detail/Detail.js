@@ -9,10 +9,12 @@ import { layThongTinChiTietPhim } from '../../redux/actions/QuanLyRapActions';
 import moment from 'moment';
 import { Rate } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const { TabPane } = Tabs;
 
 export default function Detail(props) {
+  
 
     const PhimDetail = useSelector(state => state.QuanLyPhimReducer.PhimDetail)
     const dispatch = useDispatch()
@@ -21,6 +23,8 @@ export default function Detail(props) {
         let { id } = props.match.params;
         dispatch(layThongTinChiTietPhim(id))
     }, [])
+    const { t, i18n } = useTranslation();
+
 
 
     return (
@@ -36,14 +40,14 @@ export default function Detail(props) {
                         <div style={{ display: 'flex', width: '100%' }}>
                             <img src={PhimDetail.hinhAnh} style={{ width: 200, height: 300, paddingRight: '20px' }} />
                             <div style={{ paddingTop: '20px', paddingRight: '25%' }}>
-                                <p className='text-sm'>Ngày Chiếu: {moment(PhimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
+                                <p className='text-sm'>{t('show date')}: {moment(PhimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                 <p className='text-3xl'>{PhimDetail.tenPhim}</p>
                                 <p>{PhimDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
                     <div className='w-30' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <h1 className='text-2xl text-white'>Đánh Giá</h1>
+                        <h1 className='text-2xl text-white'>{t('rate')}</h1>
                         <h1 className='text-green-400 text-2xl'><Rate allowHalf value={PhimDetail.danhGia / 2} /></h1>
                         <div className={`c100 p${PhimDetail.danhGia * 10} big`} style={{ textAlign: 'center', margin: '0' }}>
                             <span style={{ display: 'block' }}>{PhimDetail.danhGia * 10}%</span>
@@ -56,7 +60,7 @@ export default function Detail(props) {
                 </div>
                 <div className='container  mt-10 bg-white'>
                     <Tabs defaultActiveKey="1" centered>
-                        <TabPane tab="Lịch Chiếu" key="1">
+                        <TabPane tab={`${t('showtimes')}`} key="1">
                             <div>
                                 <Tabs tabPosition={'left'}>
                                     {PhimDetail.heThongRapChieu?.map((htr, index) => {
@@ -92,11 +96,11 @@ export default function Detail(props) {
                                 </Tabs>
                             </div>
                         </TabPane>
-                        <TabPane tab="Thông Tin" key="2">
-                            Thông tin
+                        <TabPane tab={`${t('information')}`} key="2">
+                        {t('information')}
                         </TabPane>
-                        <TabPane tab="Đánh Giá" key="3">
-                            Đánh giá
+                        <TabPane tab={`${t('rate')}`} key="3">
+                        {t('rate')}
                         </TabPane>
                     </Tabs>
                 </div>

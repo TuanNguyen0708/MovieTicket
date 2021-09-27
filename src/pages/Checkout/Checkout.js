@@ -13,7 +13,9 @@ import { history } from '../../App'
 import { TOKEN, USE_LOGIN } from '../../util/settings/config'
 import { NavLink } from 'react-router-dom'
 import { HomeOutlined } from '@ant-design/icons'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
+
+
 
 function Checkout(props) {
 

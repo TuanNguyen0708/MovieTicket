@@ -21,7 +21,7 @@ const onSearch = value => {
     //Gọi API layDanhSachPhim
     dispatch(layDanhSachPhimAction(value))
 }
-
+ 
 const columns = [
     {   
         width:'10%',

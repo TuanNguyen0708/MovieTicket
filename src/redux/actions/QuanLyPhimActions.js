@@ -7,7 +7,7 @@ export const layDanhSachPhimAction = (tenPhim='') => {
     return async (dispatch) => {
         try {
             const result = await QL.layDanhSachPhim(tenPhim)
-
+            console.log(result,'ad')
             dispatch({
                 type: SET_DANH_SACH_PHIM,
                 arrPhim: result.data.content

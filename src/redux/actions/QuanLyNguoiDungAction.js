@@ -1,5 +1,5 @@
 import { QLNguoiDung } from "../../service/QuanLyNguoiDung"
-import { DANG_KY, DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from '../actions/types/QuanLyNguoiDungType'
+import { DANG_KY, DANG_NHAP_ACTION, DANH_SACH_MA_LOAI_NGUOI_DUNG, DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG } from '../actions/types/QuanLyNguoiDungType'
 import { history } from "../../App"
 
 export const dangNhapAction = (thongTinDangNhap) => {
@@ -25,24 +25,21 @@ export const dangNhapAction = (thongTinDangNhap) => {
 }
 
 
-
-
 export const layThongTinNguoiDungAction = (thongTinDangNhap) => {
 
 
 
     return async (dispatch) => {
         try {
-            const result = await QLNguoiDung.layThongTinNguoiDung()
-
+            const result = await QLNguoiDung.layThongTinNguoiDung(thongTinDangNhap)
+            console.log(result,'result')
             if(result.data.statusCode === 200) {
                 dispatch({
                     type:SET_THONG_TIN_NGUOI_DUNG,
                     thongTinNguoiDung: result.data.content
                 });
             }
-            
-            
+    
         }catch (errors) {
             console.log(errors.response.data,'errors')
         }
@@ -71,4 +68,63 @@ export const dangKyAction = (thongTinDangKy) => {
         }
     }
     
+}
+
+export const capNhatThongTinAction = (formData) => {
+    return async(dispatch) => {
+        try {
+            const result = await QLNguoiDung.capNhatThongTinNguoiDung(formData)
+            console.log('result',result.data.content)
+            alert('Cập Nhật Thành Công')
+        }catch(errors){
+            console.log(errors.response.data,'errors')
+        }
+    }
+    
+}
+
+export const layDanhSachNguoiDungAction = (tuKhoa='') => {
+
+    return async (dispatch) => {
+        try {
+            const result = await QLNguoiDung.layDanhSachNguoiDung(tuKhoa)
+            console.log(result,'result')
+            dispatch({
+                type: DANH_SACH_NGUOI_DUNG,
+                danhSachNguoiDung: result.data.content
+            })
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    }
+}
+
+export const themNguoiDungAction = (formData) => {
+    return async (dispatch)=> {
+        try {
+            let result = await QLNguoiDung.themNguoiDung(formData);
+            console.log(result,'dd')
+                alert('Thêm Phim Thành Công')
+               
+            }
+        catch(errors) {
+                console.log('errors',errors.responst?.data)
+            }
+    }
+}
+
+export const layDanhSacMaLoaihNguoiDungAction = () => {
+
+    return async (dispatch) => {
+        try {
+            const result = await QLNguoiDung.layDanhSachLoaiNguoiDung()
+            console.log(result,'result')
+            dispatch({
+                type: DANH_SACH_MA_LOAI_NGUOI_DUNG,
+                dsMaLoaiNguoiDung: result.data.content
+            })
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    }
 }

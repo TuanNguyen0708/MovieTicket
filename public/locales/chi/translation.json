@@ -23,6 +23,16 @@
     "total amount" : "总 金 额",
     "phone" : "电 话",
     "booking history" : "预 订 历 史",
-    "location" : "地 点"
-    
+    "location" : "地 点",
+    "account": "帐 户",
+    "password": "密 码",
+    "forgot password": "忘 记 密 码",
+    "no account" : "没 有 账 户",
+    "email" : "电 子 邮 件",
+    "full name": "全 名",
+    "already have an account": "已 有 账 号",
+    "rate" : "速 度",
+    "showtimes" : "放 映 时 间",
+    "information" : "信 息"
+
 }

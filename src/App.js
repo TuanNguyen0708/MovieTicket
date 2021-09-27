@@ -20,6 +20,9 @@ import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
 import AddNew from './pages/Admin/Films/AddNew/AddNew';
 import Edit from './pages/Admin/Films/Edit/Edit';
+import QuanLyNguoiDung from './pages/Admin/QuanLyNguoiDung/QuanLyNguoiDung';
+import ThemNguoiDung from './pages/Admin/QuanLyNguoiDung/ThemNguoiDung';
+import EditNguoiDung from './pages/Admin/QuanLyNguoiDung/EditNguoiDung/EditNguoiDung';
 
 
 //const CheckoutTemplateLazy = lazy(()=> import('./templates/CheckoutTemplate/CheckoutTemplate.js'))
@@ -46,6 +49,9 @@ function App() {
       <AdminTemplate path='/admin/films/addnew' exact Component={AddNew} />
       <AdminTemplate path='/admin/films/edit/:id/:tenPhim' exact Component={Edit} />
       <AdminTemplate path='/admin/films/showtime/:id/:tenPhim' exact Component={Showtime} />
+      <AdminTemplate path='/admin/quanlynguoidung' exact Component={QuanLyNguoiDung} />
+      <AdminTemplate path='/admin/quanlynguoidung/themnguoidung' exact Component={ThemNguoiDung} />
+      <AdminTemplate path='/admin/quanlynguoidung/editnguoidung/:taiKhoan' exact Component={EditNguoiDung} />
 
       <AdminTemplate path='/admin/users' exact Component={Dashboad} />
       {/* <AdminTemplate path='/admin/showtime' exact Component={Showtime} /> */}

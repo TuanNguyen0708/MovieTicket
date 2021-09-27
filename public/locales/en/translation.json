@@ -23,6 +23,18 @@
     "total amount" : "Total Amount",
     "phone" : "Phone",
     "booking history" : "Booking History",
-    "location" : "Location"
+    "location" : "Location",
+    "account": "Account",
+    "password": "Password",
+    "forgot password": "Forgot Password",
+    "no account" : "No Account",
+    "email" : "Email",
+    "full name": "Full Name",
+    "already have an account": "Already have an account",
+    "rate" : "Rate",
+    "showtimes" : "Showtimes",
+    "information" : "Information"
+
+
     
 }

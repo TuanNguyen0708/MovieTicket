@@ -4,8 +4,11 @@ import { useFormik } from 'formik'
 import { dangKyAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import { useDispatch } from 'react-redux';
 import { GROUPID } from '../../util/settings/config';
+import { useTranslation } from 'react-i18next';
 
 export default function Register(props) {
+    const { t, i18n } = useTranslation();
+
     const dispatch = useDispatch()
     const formik = useFormik({
         initialValues:{
@@ -43,29 +46,29 @@ console.log(formik)
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-0 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-              xl:text-bold">Đăng Ký</h2>
+              xl:text-bold">{t('signin')}</h2>
                 <div className="mt-8">
                     <div>
                         <div>
-                            <div className="text-sm font-bold text-gray-700 tracking-wide">Tài Khoản</div>
+                            <div className="text-sm font-bold text-gray-700 tracking-wide">{t('account')}</div>
                             <input name="taiKhoan" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào tài khoản" />
                         </div>
                         <div className='mt-8'>
-                            <div className="text-sm font-bold text-gray-700 tracking-wide">Họ Tên</div>
+                            <div className="text-sm font-bold text-gray-700 tracking-wide"> {t('full name')}</div>
                             <input name="hoTen" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào họ tên" />
                         </div>
                         <div className='mt-8'>
-                            <div className="text-sm font-bold text-gray-700 tracking-wide">Email</div>
+                            <div className="text-sm font-bold text-gray-700 tracking-wide"> {t('email')}</div>
                             <input name="email" onChange={formik.handleChange} type='email' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào email" />
                         </div>
                         <div className='mt-8'>
-                            <div className="text-sm font-bold text-gray-700 tracking-wide">Số Điện Thoại</div>
+                            <div className="text-sm font-bold text-gray-700 tracking-wide"> {t('phone')}</div>
                             <input name="soDt" onChange={formik.handleChange} type='number' className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào số điện thoại" />
                         </div>
                         <div className="mt-8">
                             <div className="flex justify-between items-center">
                                 <div className="text-sm font-bold text-gray-700 tracking-wide">
-                                    Mật Khẩu
+                                {t('password')}
                                 </div>
                             </div>
                             <input name="matKhau" onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type='password' placeholder="Nhập vào mật khẩu" />
@@ -74,12 +77,12 @@ console.log(formik)
                             <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                           shadow-lg" type='submit'>
-                                Đăng Ký
+                                {t('signup')}
                             </button>
                         </div>
                     </div>
                     <div className="mt-8 text-sm font-display font-semibold text-gray-700 text-center">
-                        Đã có tài khoản? <NavLink to='login' className="cursor-pointer text-indigo-600 hover:text-indigo-800">Đăng Nhập</NavLink>
+                    {t('already have an account')}? <NavLink to='login' className="cursor-pointer text-indigo-600 hover:text-indigo-800"> {t('signup')}</NavLink>
                     </div>
                 </div>
             </div>

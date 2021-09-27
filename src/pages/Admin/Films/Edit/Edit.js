@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import { GROUPID } from '../../../../util/settings/config';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatPhimUploadAction, layThongTinPhimAction, themPhimUpLoadHinhAction } from '../../../../redux/actions/QuanLyPhimActions';
+import { capNhatPhimUploadAction, layThongTinPhimAction, } from '../../../../redux/actions/QuanLyPhimActions';
 import { useEffect } from 'react';
 
 const Edit = (props) => {
@@ -19,7 +19,7 @@ const Edit = (props) => {
   const [imgSrc, setImgSrc] = useState('');
   const dispatch = useDispatch()
   const { ThongTinPhim } = useSelector(state=>state.QuanLyPhimReducer)
-
+  
   useEffect(()=> {
     let {id} = props.match.params;
     dispatch(layThongTinPhimAction(id))
