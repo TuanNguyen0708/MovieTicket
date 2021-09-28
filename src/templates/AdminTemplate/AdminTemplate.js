@@ -64,9 +64,9 @@ const AdminTemplate = (props) => { //path, exact, Component
         return <Fragment>
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                    <div className="logo p-5">
-                        <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="..." />
-                    </div>
+                    <NavLink to='/' className="logo p-5" style={{cursor:'pointer'}} >
+                        <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" style={{height:'40px', paddingLeft:'15px'}} alt="..." />
+                    </NavLink>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         <Menu.Item key="1" icon={<UserOutlined />}>
                             <NavLink to="/admin/users">Users</NavLink>

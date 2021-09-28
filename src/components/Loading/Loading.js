@@ -11,7 +11,7 @@ export default function Loading() {
             {isLoading ?
             <div style={{ position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '20' }}>
                 <div className='text-4xl text-white'>
-                    <img src='https://i.stack.imgur.com/kOnzy.gif' style={{ width: 100, height: 100, backgroundColor: 'transparent' }} />
+                    <img src='https://i.stack.imgur.com/kOnzy.gif' style={{ width: 100, height: 100, backgroundColor: 'transparent' }} alt='' />
                 </div>
             </div> : ''}
         </Fragment>

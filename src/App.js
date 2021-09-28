@@ -1,6 +1,6 @@
 import './App.css';
 import {createBrowserHistory} from 'history'
-import { Route, Router, Switch } from 'react-router';
+import { Router, Switch } from 'react-router';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
@@ -10,7 +10,6 @@ import Register from './pages/Register/Register'
 import Detail from './pages/Detail/Detail';
 import Checkout from './pages/Checkout/Checkout';
 import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
-import {Suspense, lazy} from 'react'
 import { UseTemplate } from './templates/UserTemplate/UseTemplate';
 import Loading from './components/Loading/Loading';
 import Profile from './Profile/Profile';

@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
-import { layDanhSachNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
+import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from '../../../redux/actions/QuanLyNguoiDungAction';
 import { Fragment } from 'react';
 import { useEffect } from 'react';
 import { EditOutlined,DeleteOutlined } from '@ant-design/icons'
@@ -194,9 +194,9 @@ export default function QuanLyNguoiDung() {
                     <NavLink key={1} to={`/admin/quanlynguoidung/editnguoidung/${nguoiDung.account}`} className='text-green-500 text-2xl'><EditOutlined /></NavLink>
                     <span style={{cursor:'pointer'}} key={2} className='text-red-500 text-2xl' onClick={()=> {
                         //Gọi action Xóa
-                        if(window.confirm('Bạn có chắc muốn xóa phim ' + nguoiDung.tenPhim)) {
+                        if(window.confirm('Bạn có chắc muốn xóa phim ' + nguoiDung.account)) {
                             //Gọi action 
-                            
+                            dispatch(xoaNguoiDungAction(nguoiDung.account))
                         }
                     }}><DeleteOutlined /></span>
                 </div>

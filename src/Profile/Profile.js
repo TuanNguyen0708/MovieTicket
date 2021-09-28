@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {
     Form,
     Input,
-    Radio,
-    DatePicker,
-    InputNumber,
-    Switch,
 } from 'antd';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,13 +14,11 @@ export default function Profile(props) {
     const dispatch = useDispatch()
     useEffect((thongTinNguoiDung)=> {
         dispatch(layThongTinNguoiDungAction(thongTinNguoiDung))
-
     },[])
 
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
     }
-
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
@@ -33,18 +27,21 @@ export default function Profile(props) {
             email: thongTinNguoiDung?.email,
             soDT: thongTinNguoiDung?.soDT,
             maNhom: thongTinNguoiDung?.maNhom,
-            maLoaiNguoiDung: thongTinNguoiDung?.loaiNguoiDung,
+            maLoaiNguoiDung: thongTinNguoiDung?.maLoaiNguoiDung,
             hoTen: thongTinNguoiDung?.hoTen
+
         },
         onSubmit: (values) => {
             values.maNhom = GROUPID;
             console.log(values)
-            let formData = new FormData();
+            let formData = values
             
             dispatch(capNhatThongTinAction(formData))
 
         }
     })
+
+
 
     return (
         <Form style={{ paddingTop: 100, height:'100vh' }}
@@ -83,7 +80,7 @@ export default function Profile(props) {
                 <Input name='soDT' onChange={formik.handleChange} value={formik.values.soDT} />
             </Form.Item>
             <Form.Item label="Mã Loại Người Dùng">
-                <Input name='loaiNguoiDung' onChange={formik.handleChange} value={formik.values.maLoaiNguoiDung} />
+                <Input name='loaiNguoiDung' disabled={true} onChange={formik.handleChange} value={formik.values.maLoaiNguoiDung} />
             </Form.Item>
 
 

@@ -9,7 +9,6 @@ export default function Phim(props) {
         <div className="p-1">
             <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                 <div style={{backgroundImage:`url(${phim.hinhAnh})`, backgroundPosition:'center', backgroundSize:'cover',backgroundRepeat:'no-repeat', width:'100%', height:'300px'}}>
-                    {/* <img src={phim.hinhAnh} /> */}
                 </div>
                 <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3 h-16">{phim.tenPhim}</h1>
                 <p className="leading-relaxed mb-3 h-16">{phim.moTa.length > 100 ? <span>{phim.moTa.slice(0,100)} ...</span> : <span>{phim.moTa}</span>}</p>

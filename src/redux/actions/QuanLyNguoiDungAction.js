@@ -73,7 +73,7 @@ export const dangKyAction = (thongTinDangKy) => {
 export const capNhatThongTinAction = (formData) => {
     return async(dispatch) => {
         try {
-            const result = await QLNguoiDung.capNhatThongTinNguoiDung(formData)
+            const result = await QLNguoiDung.capNhatThongTinCaNhan(formData)
             console.log('result',result.data.content)
             alert('Cập Nhật Thành Công')
         }catch(errors){
@@ -104,7 +104,7 @@ export const themNguoiDungAction = (formData) => {
         try {
             let result = await QLNguoiDung.themNguoiDung(formData);
             console.log(result,'dd')
-                alert('Thêm Phim Thành Công')
+                alert('Thêm Người Dùng Thành Công')
                
             }
         catch(errors) {
@@ -127,4 +127,32 @@ export const layDanhSacMaLoaihNguoiDungAction = () => {
             console.log('errors', errors)
         }
     }
+}
+
+export const xoaNguoiDungAction = (taiKhoan) => {
+    return async (dispatch)=> {
+        try {
+            let result = await QLNguoiDung.xoaNguoiDung(taiKhoan);
+               alert('Xóa Người Dùng thành công')
+               console.log('result',result.data.content)
+               //sau khi xóa load lại danh sách phim mới
+               dispatch(layDanhSachNguoiDungAction())
+            }
+        catch(errors) {
+                console.log('errors',errors.responst?.data)
+            }
+    }
+}
+
+export const capNhatThongTinNguoiDungAction = (formData) => {
+    return async(dispatch) => {
+        try {
+            const result = await QLNguoiDung.capNhatThongTinNguoiDung(formData)
+            console.log('result',result.data.content)
+            alert('Cập Nhật Thành Công')
+        }catch(errors){
+            console.log(errors.response.data,'errors')
+        }
+    }
+    
 }

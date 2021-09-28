@@ -10,7 +10,7 @@ import { Select } from 'antd';
 import { GROUPID } from '../../../../util/settings/config';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatThongTinAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
+import { capNhatThongTinAction, capNhatThongTinNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
 import { layThongTinNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
 import { layDanhSachNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
 
@@ -22,7 +22,10 @@ export default function EditNguoiDung(props) {
     const [componentSize, setComponentSize] = useState('default');
     const dispatch = useDispatch();
     const {danhSachNguoiDung} = useSelector(state=>state.QuanLyNguoiDungReducer)
-    console.log(danhSachNguoiDung,'dsnd')
+    const data = danhSachNguoiDung[0]
+
+
+
     useEffect(() => {
         let {taiKhoan} = props.match.params
         dispatch(layDanhSachNguoiDungAction(taiKhoan));
@@ -38,13 +41,13 @@ export default function EditNguoiDung(props) {
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            taiKhoan: danhSachNguoiDung.taiKhoan,
-            matKhau: danhSachNguoiDung.matKhau,
-            email: danhSachNguoiDung.email,
-            soDt: danhSachNguoiDung.soDt,
-            maNhom: danhSachNguoiDung.maNhom,
-            maLoaiNguoiDung: danhSachNguoiDung.maLoaiNguoiDung,
-            hoTen: danhSachNguoiDung.hoTen        
+            taiKhoan: data?.taiKhoan,
+            matKhau: data?.matKhau,
+            email: data?.email,
+            soDt: data?.soDt,
+            maNhom: data?.maNhom,
+            maLoaiNguoiDung: data?.maLoaiNguoiDung,
+            hoTen: data?.hoTen        
         },
         onSubmit: (values) => {
           values.maNhom = GROUPID;
@@ -52,7 +55,7 @@ export default function EditNguoiDung(props) {
           let formData = values
           console.log(formData,'ddd')
           //Cập nhật người dùng
-            dispatch(capNhatThongTinAction(formData))
+            dispatch(capNhatThongTinNguoiDungAction(formData))
         }
       })
     const onFormLayoutChange = ({ size }) => {
