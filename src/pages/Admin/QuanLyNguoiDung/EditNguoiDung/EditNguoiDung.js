@@ -10,8 +10,7 @@ import { Select } from 'antd';
 import { GROUPID } from '../../../../util/settings/config';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatThongTinAction, capNhatThongTinNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
-import { layThongTinNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
+import { capNhatThongTinNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
 import { layDanhSachNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction'
 
 

@@ -105,7 +105,7 @@ export const themNguoiDungAction = (formData) => {
             let result = await QLNguoiDung.themNguoiDung(formData);
             console.log(result,'dd')
                 alert('Thêm Người Dùng Thành Công')
-               
+                history.push('/admin/quanlynguoidung')
             }
         catch(errors) {
                 console.log('errors',errors.responst?.data)

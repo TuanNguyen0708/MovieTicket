@@ -77,7 +77,7 @@ console.log(formik)
                             <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                           shadow-lg" type='submit'>
-                                {t('signup')}
+                                {t('signin')}
                             </button>
                         </div>
                     </div>

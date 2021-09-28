@@ -194,7 +194,7 @@ export default function QuanLyNguoiDung() {
                     <NavLink key={1} to={`/admin/quanlynguoidung/editnguoidung/${nguoiDung.account}`} className='text-green-500 text-2xl'><EditOutlined /></NavLink>
                     <span style={{cursor:'pointer'}} key={2} className='text-red-500 text-2xl' onClick={()=> {
                         //Gọi action Xóa
-                        if(window.confirm('Bạn có chắc muốn xóa phim ' + nguoiDung.account)) {
+                        if(window.confirm('Bạn có chắc muốn xóa người dùng? ' + nguoiDung.account)) {
                             //Gọi action 
                             dispatch(xoaNguoiDungAction(nguoiDung.account))
                         }
