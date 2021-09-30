@@ -8,7 +8,7 @@ import _ from 'lodash'
 import { Button, Tabs } from 'antd';
 import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction'
 import moment from 'moment'
-import { connection } from '../../index'
+
 import { history } from '../../App'
 import { TOKEN, USE_LOGIN } from '../../util/settings/config'
 import { NavLink } from 'react-router-dom'
@@ -32,47 +32,47 @@ function Checkout(props) {
         dispatch(action);
 
         // Có 1 client nào thực hiện việc đặt vé thành công mình sẽ load lại danh sách phòng vé của lịch chiếu đó
-        connection.on('datVeThanhCong', () =>  {
-            dispatch(action);
-        })
+        // connection.on('datVeThanhCong', () =>  {
+        //     dispatch(action);
+        // })
 
 
 
         //Vừa vào trang load tất cả ghế của các người khác đang đặt
-        connection.invoke('loadDanhSachGhe',props.match.params.id);
+        //connection.invoke('loadDanhSachGhe',props.match.params.id);
 
 
         //Load danh sách ghế đang đặt từ server về (lắng nghe tín hiệu từ server trả về)
-        connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
-            //Bước 1: Loại mình ra khỏi danh sách 
-            dsGheKhachDat = dsGheKhachDat.filter(item => item.taiKhoan !== userLogin.taiKhoan);
-            //Bước 2 gộp danh sách ghế khách đặt ở tất cả user thành 1 mảng chung 
+        //connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
+        //Bước 1: Loại mình ra khỏi danh sách 
+        //dsGheKhachDat = dsGheKhachDat.filter(item => item.taiKhoan !== userLogin.taiKhoan);
+        //Bước 2 gộp danh sách ghế khách đặt ở tất cả user thành 1 mảng chung 
 
-            let arrGheKhachDat = dsGheKhachDat.reduce((result,item,index)=>{
-                let arrGhe = JSON.parse(item.danhSachGhe);
+        // let arrGheKhachDat = dsGheKhachDat.reduce((result,item,index)=>{
+        //     let arrGhe = JSON.parse(item.danhSachGhe);
 
-                return [...result,...arrGhe];
-            },[])
-            arrGheKhachDat = _.uniqBy(arrGheKhachDat,'maGhe')
-            //Đưa dữ liệu ghế khách đặt về redux
-            dispatch({ 
-                type: 'DAT_GHE',
-                arrGheKhachDat
-            })
-        })
-         //Cài đặt sự kiện khi reload trang
-         window.addEventListener("beforeunload", clearGhe);
+        //     return [...result,...arrGhe];
+        // },[])
+        // arrGheKhachDat = _.uniqBy(arrGheKhachDat,'maGhe')
+        // //Đưa dữ liệu ghế khách đặt về redux
+        // dispatch({ 
+        //     type: 'DAT_GHE',
+        //     arrGheKhachDat
+        // })
+        // })
+        //Cài đặt sự kiện khi reload trang
+        //  window.addEventListener("beforeunload", clearGhe);
 
-         return () => {
-             clearGhe();
-             window.removeEventListener('beforeunload',clearGhe);
-         }
+        //  return () => {
+        //      clearGhe();
+        //      window.removeEventListener('beforeunload',clearGhe);
+        //  }
 
 
     }, [])
-    const clearGhe = function(event) {
-        connection.invoke('huyDat',userLogin.taiKhoan,props.match.params.id)
-    }
+    // const clearGhe = function(event) {
+    //     connection.invoke('huyDat',userLogin.taiKhoan,props.match.params.id)
+    // }
 
 
 
@@ -99,8 +99,8 @@ function Checkout(props) {
             }
             //Kiểm tra từng render xem có phải ghế khách đặt hay không
             let classGheKhachDat = '';
-            let indexGheKD = danhSachGheKhachDat.findIndex(gheKD=>gheKD.maGhe === ghe.maGhe)
-            if(indexGheKD != -1){
+            let indexGheKD = danhSachGheKhachDat.findIndex(gheKD => gheKD.maGhe === ghe.maGhe)
+            if (indexGheKD != -1) {
                 classGheKhachDat = 'gheKhachDangDat'
             }
 
@@ -108,7 +108,7 @@ function Checkout(props) {
 
             return <Fragment key={index} >
                 <button disabled={ghe.daDat || classGheKhachDat != ''} className={`ghe ${classGheVip}  ${classGheDaDat} ${classGheDD} ${classGheMinhDat} ${classGheKhachDat}`} onClick={() => {
-                    const action = datGheAction(ghe,props.match.params.id);
+                    const action = datGheAction(ghe, props.match.params.id);
                     dispatch(action);
                 }} >
                     {ghe.daDat === true ? <span className='font-bold'>X</span> : classGheKhachDat != '' ? <span className='font-bold'>O</span> : ghe.stt}
@@ -121,7 +121,7 @@ function Checkout(props) {
             </Fragment>
         })
     }
-    
+
     const { t, i18n } = useTranslation();
     return (
         <div className='mt-5'>
@@ -224,24 +224,24 @@ function callback(key) {
 
 export default function CheckoutTab(props) {
 
-    const {tabActive} = useSelector(state=>state.QuanLyDatVeReducer)
+    const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
     const dispatch = useDispatch();
 
-    const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer)
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
 
-    useEffect(()=> {
+    useEffect(() => {
         return () => {
             dispatch({
                 type: 'CHANGE_TAB_ACTIVE',
                 number: '1'
             })
         }
-    },[])
+    }, [])
 
     const operations = <Fragment>
-        {!_.isEmpty(userLogin) ? <Fragment> <button onClick={()=> {
+        {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
             history.push('/profile')
-        }}><span style={{display:'flex',justifyContent:'center',alignItems:'center', width:50, height:50, margin:'0 auto'}} className='rounded-full bg-red-200 border-2'>{userLogin.taiKhoan.substr(0,1)}</span>Hello ! {userLogin.taiKhoan} </button> <button className='text-blue-800' onClick={()=> {
+        }}><span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: 50, height: 50, margin: '0 auto' }} className='rounded-full bg-red-200 border-2'>{userLogin.taiKhoan.substr(0, 1)}</span>Hello ! {userLogin.taiKhoan} </button> <button className='text-blue-800' onClick={() => {
             localStorage.removeItem(USE_LOGIN);
             localStorage.removeItem(TOKEN);
             history.push('/home');
@@ -252,7 +252,7 @@ export default function CheckoutTab(props) {
 
 
     return <div className='p-5'>
-        <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key)=> {
+        <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
             dispatch({
                 type: 'CHANGE_TAB_ACTIVE',
                 number: key
@@ -264,7 +264,7 @@ export default function CheckoutTab(props) {
             <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
-            <TabPane tab={<NavLink className='text-2xl' style={{marginLeft:'100px'}} to='/'><HomeOutlined /></NavLink>} key='3'>
+            <TabPane tab={<NavLink className='text-2xl' style={{ marginLeft: '100px' }} to='/'><HomeOutlined /></NavLink>} key='3'>
 
             </TabPane>
         </Tabs>
@@ -285,15 +285,15 @@ function KetQuaDatVe(props) {
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             return <div className="p-4 lg:w-1/2" key={index}>
                 <div className="h-full flex sm:flex-row flex-col sm:justify-start justify-center sm:text-left">
-                    <div style={{backgroundImage:`url(${ticket.hinhAnh})`, backgroundPosition:'center',backgroundSize:'cover', width:250, height:250, backgroundRepeat:'no-repeat'}}>
+                    <div style={{ backgroundImage: `url(${ticket.hinhAnh})`, backgroundPosition: 'center', backgroundSize: 'cover', width: 250, height: 250, backgroundRepeat: 'no-repeat' }}>
                     </div>
                     <div className="flex-grow sm:pl-8">
                         <h1 className="title-font font-medium text-2xl text-gray-900">{ticket.tenPhim}</h1>
                         <h2 className="text-gray-500 mb-3">Ngày Chiếu: {moment(ticket.ngayDat).format('hh:mm A')} - {moment(ticket.ngayDat).format('DD/MM/YYYY')}</h2>
-                        <h2 className="text-gray-500 mb-3">{_.first(ticket.danhSachGhe).tenCumRap} - Ghế: {ticket.danhSachGhe?.map((ghe,index)=> {
+                        <h2 className="text-gray-500 mb-3">{_.first(ticket.danhSachGhe).tenCumRap} - Ghế: {ticket.danhSachGhe?.map((ghe, index) => {
                             return <span key={index}>
-                               [{ghe.tenGhe}]
-                               
+                                [{ghe.tenGhe}]
+
                             </span>
                         })}</h2>
                         <p className="mb-4">Địa Điểm: {_.first(ticket.danhSachGhe).tenHeThongRap}</p>
@@ -306,9 +306,9 @@ function KetQuaDatVe(props) {
 
     return <section className="text-gray-600 body-font">
         <div className="container py-10 mx-auto">
-                <h1 className="text-2xl text-center font-medium title-font mb-4 text-gray-900 tracking-widest">LỊCH SỬ ĐẶT VÉ</h1>
+            <h1 className="text-2xl text-center font-medium title-font mb-4 text-gray-900 tracking-widest">LỊCH SỬ ĐẶT VÉ</h1>
             <div className="flex flex-wrap -m-4">
-            {renderTicketItem()}
+                {renderTicketItem()}
             </div>
         </div>
     </section>
