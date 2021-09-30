@@ -22,6 +22,9 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: true,
+    react: { 
+      useSuspense: false //   <---- this will do the magic
+    },
 
     whitelist:['chi','en','vi'], //liệt kê các ngon ngữ
 
