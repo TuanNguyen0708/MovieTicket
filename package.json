@@ -1,5 +1,4 @@
 {
-  "home": " https://tuannguyen0708.github.io/MovieTicket/",
   "name": "movieticket",
   "version": "0.1.0",
   "private": true,
@@ -39,8 +38,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
