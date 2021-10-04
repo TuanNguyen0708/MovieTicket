@@ -72,7 +72,6 @@ const MultipleRows = (props) => {
       }} >{t('upcoming movie')}</button>
       <div className='container mt-5' style={{ display: 'flex', flexWrap:'wrap', textAlign:'center'}} pagination={{pageSize: 6}}>
         {renderPhim()}
-        <Pagination defaultCurrent={1} total={50} />
       </div>
     </div>
   );

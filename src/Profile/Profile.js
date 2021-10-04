@@ -65,7 +65,7 @@ export default function Profile(props) {
             <h1 className='mb-5 text-center text-3xl'>Trang Cá Nhân</h1>
 
             <Form.Item label="Tài Khoản">
-                <Input name='taiKhoan' onChange={formik.handleChange} value={formik.values.taiKhoan} />
+                <Input name='taiKhoan' disabled={true} onChange={formik.handleChange} value={formik.values.taiKhoan} />
             </Form.Item>
             <Form.Item label="Mật Khẩu">
                 <Input name='matKhau' onChange={formik.handleChange} value={formik.values.matKhau} />

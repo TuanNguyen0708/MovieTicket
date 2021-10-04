@@ -28,7 +28,7 @@ export default function Header(props) {
             </Fragment>
         }
         return <Fragment>
-            <button className="nav-item mr-3 text-white" style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => { history.push('/login') }} >Hello ! {userLogin.taiKhoan}</button>
+            <button className="nav-item mr-3 text-white" style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => { history.push('/profile') }} >Hello ! {userLogin.taiKhoan}</button>
             <button className='text-white' style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => {
                 localStorage.removeItem(USE_LOGIN);
                 localStorage.removeItem(TOKEN);

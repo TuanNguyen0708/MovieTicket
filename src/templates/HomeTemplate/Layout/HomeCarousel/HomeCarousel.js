@@ -6,7 +6,7 @@ export default function HomeCarousel(props) {
     const remderImg = () => {
         return arrImg.map((item,index) => {
             return <div key={index} className={`carousel-item ${index === 1 ? 'active' : ''}`}>
-                <div style={{backgroundImage:`url(${item.hinhAnh})`, backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat:'no-repeat', width:'100%', height:'300px', display:'block'}}>
+                <div style={{backgroundImage:`url(${item.hinhAnh})`, backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat:'no-repeat', width:'100%', height:'100vh', display:'block'}}>
                 </div>
             </div>
         })
