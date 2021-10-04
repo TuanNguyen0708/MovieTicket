@@ -63,8 +63,8 @@ export default function HomeMenu(props) {
     const { tabPosition } = state;
 
     return (
-        <>
-            <Tabs tabPosition={tabPosition} style={{width:'80%', margin:'50px auto'}}>
+        < >
+            <Tabs tabPosition={tabPosition} style={{width:'80%', margin:'100px auto'}}>
                 {renderHeThongRap()}
             </Tabs>
         </>

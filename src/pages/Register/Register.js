@@ -46,7 +46,7 @@ console.log(formik)
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-0 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-              xl:text-bold">{t('signin')}</h2>
+              xl:text-bold">{t('signup')}</h2>
                 <div className="mt-8">
                     <div>
                         <div>
@@ -77,12 +77,12 @@ console.log(formik)
                             <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                           shadow-lg" type='submit'>
-                                {t('signin')}
+                                {t('signup')}
                             </button>
                         </div>
                     </div>
                     <div className="mt-8 text-sm font-display font-semibold text-gray-700 text-center">
-                    {t('already have an account')}? <NavLink to='login' className="cursor-pointer text-indigo-600 hover:text-indigo-800"> {t('signup')}</NavLink>
+                    {t('already have an account')}? <NavLink to='login' className="cursor-pointer text-indigo-600 hover:text-indigo-800"> {t('signin')}</NavLink>
                     </div>
                 </div>
             </div>

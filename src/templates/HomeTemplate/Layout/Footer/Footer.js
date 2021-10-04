@@ -5,55 +5,84 @@ import { useSelector } from 'react-redux';
 
 export default function Footer(props) {
 
-    const {heThongRapChieu} = useSelector(state => state.QuanLyRapReducer);
-   
-    const arrHeThongRap = _.map(heThongRapChieu,(heThongRap) => _.pick(heThongRap,['maHeThongRap','tenHeThongRap','logo']));
+    const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer);
 
-    
+    const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo']));
+
+
     return (
-        <footer className="py-6 bg-coolGray-100 text-coolGray-900 bg-gray-800">
-            <div className="px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
-                <div className="grid grid-cols-12">
-                    <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
-                        <a href="#" className="flex justify-center space-x-3 md:justify-start text-black">
-                           
-                            <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/>
-                        </a>
+        <footer className="page-footer font-small mdb-color pt-4" style={{background:'#1f2937'}}>
+            {/* Footer Links */}
+            <div className="text-center text-md-left">
+                {/* Footer links */}
+                <div className="row text-center text-md-left mt-3 pb-3">
+                    {/* Grid column */}
+                    <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style={{textAlign:'center'}}>
+                        <img src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
                     </div>
-                    <div className="col-span-6 text-center md:text-left md:col-span-3">
-                        <p className="pb-1 text-lg font-medium text-white">PARTNER</p>
-                        <div className="grid grid-cols-3" style={{color:'#fff'}}>
-                            {arrHeThongRap.map((htr,index) => {
-                                return <div key={index}>
-                                <img src={htr.logo} style={{width:50}} />
-                            </div>
-                            })}
-                        </div>
+                    {/* Grid column */}
+                    <hr className="w-100 clearfix d-md-none" />
+                    {/* Grid column */}
+                    <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-white" style={{textAlign:'center'}}>
+                        <h6 className="text-uppercase mb-4 font-weight-bold">Products</h6>
+                        <p>
+                            MDBootstrap
+                        </p>
+                        <p>
+                            MDWordPress
+                        </p>
+                        <p>
+                            BrandFlow
+                        </p>
+                        <p>
+                           Bootstrap Angular
+                        </p>
                     </div>
-                    <div className="col-span-6 text-center md:text-left md:col-span-3 text-white">
-                        <p className="pb-1 text-lg font-medium">Mobile app</p>
-                        <div className="flex text-white">
-                            <div className="mr-5">
-                            <AppleOutlined className="text-2xl" /> 
-                            </div>
-                            <div>
-                            <FacebookOutlined className="text-2xl"/>
-                            </div>
-                          
-                        </div>
+                    {/* Grid column */}
+                    <hr className="w-100 clearfix d-md-none" />
+                    {/* Grid column */}
+                    <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 text-white" style={{textAlign:'center'}}>
+                        <h6 className="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                        <p>
+                            Your Account
+                        </p>
+                        <p>
+                            Become an Affiliate
+                        </p>
+                        <p>
+                            Shipping Rates
+                        </p>
+                        <p>
+                            Help
+                        </p>
                     </div>
+                    {/* Grid column */}
+                    <hr className="w-100 clearfix d-md-none" />
+                    {/* Grid column */}
+                    <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-white" style={{textAlign:'center'}}>
+                        <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p>
+                            <i className="fas fa-home mr-3" /> New York, NY 10012, US</p>
+                        <p>
+                            <i className="fas fa-envelope mr-3" /> info@gmail.com</p>
+                        <p>
+                            <i className="fas fa-phone mr-3" /> + 01 234 567 88</p>
+                        <p>
+                            <i className="fas fa-print mr-3" /> + 01 234 567 89</p>
+                    </div>
+                    {/* Grid column */}
                 </div>
-                <div className="grid justify-center pt-6 lg:justify-between text-white">
-                    <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
-                        <span>©2021 All rights reserved</span>
-                    </div>
-
-                    <div className="">
-
-                    </div>
+                {/* Footer links */}
+                <hr />
+                {/* Grid row */}
+                <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+                    <a class="dark-grey-text text-white" href="http://cyberlearn.vn/"> Cyberlearn</a>
                 </div>
+
             </div>
+
         </footer>
+
 
     )
 }

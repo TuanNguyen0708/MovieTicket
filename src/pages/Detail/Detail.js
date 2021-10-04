@@ -1,7 +1,7 @@
 import React from 'react'
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import '@tsamantanis/react-glassmorphism/dist/index.css'
-import '../../assets/style/circle.scss'
+import '../../assets/style/circle.css'
 import { Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -38,8 +38,8 @@ export default function Detail(props) {
                 <div className='container' style={{ padding: '150px 150px 0 150px', display: 'flex', justifyContent: 'space-around' }}>
                     <div className='w-70' style={{ display: 'flex', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', width: '100%' }}>
-                            <img src={PhimDetail.hinhAnh} style={{ width: 200, height: 300, paddingRight: '20px' }} />
-                            <div style={{ paddingTop: '20px', paddingRight: '25%' }}>
+                            <div style={{backgroundImage:`url(${PhimDetail.hinhAnh})`, backgroundSize:'cover', backgroundPosition:'center', backgroundRepeat:'no-repeat', width: '200px', height: '100%'}}></div>
+                            <div style={{ paddingTop: '20px', width:'50%', paddingLeft:'20px' }}>
                                 <p className='text-sm'>{t('show date')}: {moment(PhimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                 <p className='text-3xl'>{PhimDetail.tenPhim}</p>
                                 <p>{PhimDetail.moTa}</p>
@@ -49,8 +49,9 @@ export default function Detail(props) {
                     <div className='w-30' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <h1 className='text-2xl text-white'>{t('rate')}</h1>
                         <h1 className='text-green-400 text-2xl'><Rate allowHalf value={PhimDetail.danhGia / 2} /></h1>
-                        <div className={`c100 p${PhimDetail.danhGia * 10} big`} style={{ textAlign: 'center', margin: '0' }}>
-                            <span style={{ display: 'block' }}>{PhimDetail.danhGia * 10}%</span>
+                        <div className={`c100 p${PhimDetail.danhGia * 10} big`} style={{background:'transparent', margin:'0 auto'}}>
+                            <span>{PhimDetail.danhGia * 10}%
+                            </span>
                             <div className="slice">
                                 <div className="bar"></div>
                                 <div className="fill"></div>

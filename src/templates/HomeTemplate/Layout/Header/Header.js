@@ -21,10 +21,10 @@ export default function Header(props) {
     const renderLogin = () => {
         if (_.isEmpty(userLogin)) {
             return <Fragment>
-                <button className="nav-item mr-3 text-white" style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => { history.push('/register') }} >{t('signin')}</button>
+                <button className="nav-item mr-3 text-white" style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => { history.push('/register') }} >{t('signup')}</button>
                 <button className="nav-item text-white" style={{ border: '1px solid #fff', padding: '10px 15px', borderRadius: '5px' }} onClick={() => {
                     history.push('/login')
-                }} >{t('signup')}</button>
+                }} >{t('signin')}</button>
             </Fragment>
         }
         return <Fragment>
@@ -51,11 +51,9 @@ export default function Header(props) {
                         <NavLink to='/home' className="flex items-center -mb-0.5 border-b-2 px-2 py-2 mr-4 border-transparent text-violet-600 boder-violet-600 text-white" activeClassName='border-b-2 border-white'>{t('home')}</NavLink>
                     </li>
                     <li className="nav-item" style={{ padding: '10px 0' }}>
-                        <NavLink to='/contact' className="flex items-center -mb-0.5 border-b-2 px-2 py-2 mr-4 border-transparent text-white" activeClassName='border-b-2 border-white'>{t('contact')}</NavLink>
+                        <NavLink to='/admin' className="flex items-center -mb-0.5 border-b-2 px-2 py-2 mr-4 border-transparent text-white" activeClassName='border-b-2 border-white'>{t('admin')}</NavLink>
                     </li>
-                    <li className="nav-item" style={{ padding: '10px 0' }}>
-                        <NavLink to='/news' className="flex items-center -mb-0.5 border-b-2 px-2 py-2 mr-4 border-transparent text-white" activeClassName='border-b-2 border-white'>{t('news')}</NavLink>
-                    </li>
+                    
                 </ul>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexDirection: 'row', paddingRight: '10px' }}>

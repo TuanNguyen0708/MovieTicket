@@ -42,7 +42,7 @@ export default function Login(props) {
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-              xl:text-bold">{t('signup')}</h2>
+              xl:text-bold">{t('signin')}</h2>
                 <div className="mt-12">
                     <div>
                         <div>
@@ -67,12 +67,12 @@ export default function Login(props) {
                             <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                           font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
                           shadow-lg">
-                                {t('signup')}
+                                {t('signin')}
                             </button>
                         </div>
                     </div>
                     <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                    {t('no account')}? <NavLink to='register' className="cursor-pointer text-indigo-600 hover:text-indigo-800">{t('signin')}</NavLink>
+                    {t('no account')}? <NavLink to='register' className="cursor-pointer text-indigo-600 hover:text-indigo-800">{t('signup')}</NavLink>
                     </div>
                 </div>
             </div>
