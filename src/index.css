@@ -6,3 +6,31 @@
     padding: 0;
     margin: 0;
 }
+/* Mobile iphome 6,7,8+ */
+/* header */
+@media screen and (max-width: 739px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    .header {
+        margin: 0;
+        padding: 0;
+        background-color: #333636;
+    }
+    .navbar-toggler:not(:disabled):not(.disabled) {
+        border: 1px solid #fff;
+    }
+    .header_nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header_userLogin {
+        display: flex;
+        flex-direction: column;
+    }
+    .ant-select.ant-select-single.ant-select-show-arrow {
+        margin: 10px;
+    }
+}

@@ -37,8 +37,8 @@ export default function Header(props) {
             }}>{t('signout')}</button>
         </Fragment>
     }
-    return (
-        <div className="fixed w-full navbar navbar-expand-lg navbar-light  bg-opacity-40 bg-black" style={{ display: 'flex', justifyContent: 'space-around', width: '100%', zIndex: '20' }}>
+    return ( 
+        <div className="header fixed w-full navbar navbar-expand-lg navbar-light  bg-opacity-40 bg-black" style={{ display: 'flex', justifyContent: 'space-around', width: '100%', zIndex: '20' }}>
             <NavLink to='/' aria-label="Back to homepage" className="flex items-center p-2">
                 <img src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
             </NavLink>
@@ -46,7 +46,7 @@ export default function Header(props) {
                 <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown" style={{ justifyContent: 'space-between' }}>
-                <ul className="navbar-nav" style={{ margin: '10px 10%' }}>
+                <ul className="header_nav navbar-nav" style={{ margin: '10px 10%' }}>
                     <li className="nav-item active" style={{ padding: '10px 0' }}>
                         <NavLink to='/home' className="flex items-center -mb-0.5 border-b-2 px-2 py-2 mr-4 border-transparent text-violet-600 boder-violet-600 text-white" activeClassName='border-b-2 border-white'>{t('home')}</NavLink>
                     </li>
@@ -55,14 +55,14 @@ export default function Header(props) {
                     </li>
                     
                 </ul>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', flexDirection: 'row', paddingRight: '10px' }}>
+                <div className='header_userLogin' style={{ display: 'flex', alignItems: 'center' }}>
+                    <div  style={{ display: 'flex', flexDirection: 'row', paddingRight: '10px' }}>
                         {renderLogin()}
                     </div>
                     <Select defaultValue="en" style={{ width: 100 }} onChange={handleChange}>
                         <Option value="en">English</Option>
                         <Option value="vi">Việt Nam</Option>
-                        <Option value="chi">China</Option>
+                        <Option value="chi">China</Option>  
                     </Select>
                 </div>
             </div>
