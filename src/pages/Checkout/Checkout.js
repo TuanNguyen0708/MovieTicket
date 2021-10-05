@@ -125,15 +125,15 @@ function Checkout(props) {
     const { t, i18n } = useTranslation();
     return (
         <div className='mt-5'>
-            <div className='grid grid-cols-12'>
-                <div className='col-span-9'>
-                    <div className='flex justify-center flex-col items-center ' style={{ width: '80%', margin: '0 auto' }}>
+            <div className='checkout grid grid-cols-12'>
+                <div className='checkout_item col-span-9'>
+                    <div className='checkout_number flex justify-center flex-col items-center ' style={{ width: '80%', margin: '0 auto' }}>
                         <div className='bg-black' style={{ width: '80%', height: 10, display: 'block' }}>
                         </div>
                         <div className={`${style['trapezoid']} text-center`}>
                             <h3 className='mt-3'>Màn Hình</h3>
                         </div>
-                        <div className='mt-5 text-center'>
+                        <div className='checkout_seat mt-5 text-center'>
                             {renderSeats()}
                         </div>
                     </div>
@@ -162,7 +162,7 @@ function Checkout(props) {
                         </table>
                     </div>
                 </div>
-                <div className='col-span-3'>
+                <div className='checkout_pay col-span-3'>
                     <h3 className='text-center text-3xl text-green-400'>{danhSachGheDangDat.reduce((thanhTien, ghe, index) => {
                         return thanhTien += ghe.giaVe
                     }, 0).toLocaleString()} đ</h3>
@@ -258,10 +258,10 @@ export default function CheckoutTab(props) {
                 number: key
             })
         }}>
-            <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
+            <TabPane tab="CHỌN GHẾ" key="1">
                 <Checkout {...props} />
             </TabPane>
-            <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+            <TabPane tab="KẾT QUẢ" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
             <TabPane tab={<NavLink className='text-2xl' style={{ marginLeft: '100px' }} to='/'><HomeOutlined /></NavLink>} key='3'>
@@ -285,7 +285,7 @@ function KetQuaDatVe(props) {
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             return <div className="p-4 lg:w-1/2" key={index}>
                 <div className="h-full flex sm:flex-row flex-col sm:justify-start justify-center sm:text-left">
-                    <div style={{ backgroundImage: `url(${ticket.hinhAnh})`, backgroundPosition: 'center', backgroundSize: 'cover', width: 250, height: 250, backgroundRepeat: 'no-repeat' }}>
+                    <div style={{ backgroundImage: `url(${ticket.hinhAnh})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '250px', height: '250px', backgroundRepeat: 'no-repeat' }}>
                     </div>
                     <div className="flex-grow sm:pl-8">
                         <h1 className="title-font font-medium text-2xl text-gray-900">{ticket.tenPhim}</h1>

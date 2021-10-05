@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+html,body {
+    margin:0;
     padding: 0;
-    margin: 0;
+    width:100%;
+    height:100%;
+    overflow-x: hidden;
 }
 /* Mobile iphome 6,7,8+ */
 /* header */
 @media screen and (max-width: 739px) {
-    body {
-        padding: 0;
-        margin: 0;
-    }
-    .header {
+   .header {
         margin: 0;
         padding: 0;
         background-color: #333636;
@@ -33,4 +32,83 @@
     .ant-select.ant-select-single.ant-select-show-arrow {
         margin: 10px;
     }
+}
+
+/* MultipleRowSlick */
+@media screen and (max-width: 739px) {
+    .multiple{
+        margin-left: 0 !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .multiple_film {
+        width: 100vh !important;
+        margin: 50px 0 !important;
+        padding: 0 !important;
+    }
+    .multiple_item {
+        width: 50% !important;
+    }
+}
+/* footer */
+@media screen and (max-width: 739px) {
+    .footer_logo {
+        text-align: center;
+    }
+    .footer_logo_img{
+        display: initial !important;
+        margin-bottom: 20px;
+    }
+
+}
+/* detail */
+@media screen and (max-width: 739px) {
+    .detail_item {
+        flex-direction: column;
+        padding: 150px 0 !important;
+        justify-content: center;
+    }
+    .detail_item_first {
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .detail_item_content {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .detail_imgFilm {
+        height: 300px !important;
+        margin: 0 auto;
+    }
+    .detail_text {
+        width: 100% !important;
+        text-align: center;
+        padding-right: 20px;
+    }
+    
+}
+/* checkout */
+@media screen and (max-width: 739px) {
+    .checkout {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .checkout_item {
+        column-span: 12;
+    }
+    .checkout_number {
+        width: 100% !important;
+    }
+    .checkout_seat {
+        padding: 0 20px;
+    }
+    .checkout_pay {
+        margin-top: 50px;
+    }
+
 }

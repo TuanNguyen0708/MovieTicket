@@ -28,18 +28,18 @@ export default function Detail(props) {
 
 
     return (
-        <div style={{ backgroundImage: `url(${PhimDetail.hinhAnh})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
+        <div className='detail' style={{ backgroundImage: `url(${PhimDetail.hinhAnh})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
             <CustomCard style={{ background: 'rgba(16,18,27,0.4)', minHeight: '100vh', padding: '0' }}
                 effectColor="#fff" // required
                 color="#fff" // default color is white
                 blur={10} // default blur value is 10px
                 borderRadius={1} // default border radius value is 10px
             >
-                <div className='container' style={{ padding: '150px 150px 0 150px', display: 'flex', justifyContent: 'space-around' }}>
-                    <div className='w-70' style={{ display: 'flex', justifyContent: 'center' }}>
-                        <div style={{ display: 'flex', width: '100%' }}>
-                            <div style={{backgroundImage:`url(${PhimDetail.hinhAnh})`, backgroundSize:'cover', backgroundPosition:'center', backgroundRepeat:'no-repeat', width: '200px', height: '100%'}}></div>
-                            <div style={{ paddingTop: '20px', width:'50%', paddingLeft:'20px' }}>
+                <div className='detail_item container' style={{ padding: '150px 150px 0 150px', display: 'flex', justifyContent: 'space-around' }}>
+                    <div className='detail_item_first w-70' style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div className='detail_item_content' style={{ display: 'flex', width: '100%' }}>
+                            <div className='detail_imgFilm' style={{backgroundImage:`url(${PhimDetail.hinhAnh})`, backgroundSize:'cover', backgroundPosition:'center', backgroundRepeat:'no-repeat', width: '200px', height: '100%'}}></div>
+                            <div className='detail_text' style={{ paddingTop: '20px', width:'50%', paddingLeft:'20px' }}>
                                 <p className='text-sm'>{t('show date')}: {moment(PhimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                 <p className='text-3xl'>{PhimDetail.tenPhim}</p>
                                 <p>{PhimDetail.moTa}</p>

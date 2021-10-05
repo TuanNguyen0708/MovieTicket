@@ -17,8 +17,8 @@ export default function Footer(props) {
                 {/* Footer links */}
                 <div className="row text-center text-md-left mt-3 pb-3">
                     {/* Grid column */}
-                    <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style={{textAlign:'center'}}>
-                        <img src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
+                    <div className="footer_logo col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style={{textAlign:'center'}}>
+                        <img className="footer_logo_img" src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
                     </div>
                     {/* Grid column */}
                     <hr className="w-100 clearfix d-md-none" />

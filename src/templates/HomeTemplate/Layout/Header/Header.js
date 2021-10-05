@@ -38,7 +38,7 @@ export default function Header(props) {
         </Fragment>
     }
     return ( 
-        <div className="header fixed w-full navbar navbar-expand-lg navbar-light  bg-opacity-40 bg-black" style={{ display: 'flex', justifyContent: 'space-around', width: '100%', zIndex: '20' }}>
+        <div className="header fixed navbar navbar-expand-lg navbar-light  bg-opacity-40 bg-black" style={{ display: 'flex', justifyContent: 'space-around', width: '100%', zIndex: '20' }}>
             <NavLink to='/' aria-label="Back to homepage" className="flex items-center p-2">
                 <img src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png' alt='cyberlearn' />
             </NavLink>
