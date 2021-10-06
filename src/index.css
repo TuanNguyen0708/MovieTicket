@@ -11,7 +11,7 @@ html,body {
 }
 /* Mobile iphome 6,7,8+ */
 /* header */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 414px) {
    .header {
         margin: 0;
         padding: 0;
@@ -30,12 +30,12 @@ html,body {
         flex-direction: column;
     }
     .ant-select.ant-select-single.ant-select-show-arrow {
-        margin: 10px;
+        margin: 20px;
     }
 }
 
 /* MultipleRowSlick */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 414px) {
     .multiple{
         margin-left: 0 !important;
         display: flex;
@@ -44,16 +44,15 @@ html,body {
         align-items: center;
     }
     .multiple_film {
-        width: 100vh !important;
         margin: 50px 0 !important;
         padding: 0 !important;
     }
     .multiple_item {
-        width: 50% !important;
+        width: 100% !important;
     }
 }
 /* footer */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 414px) {
     .footer_logo {
         text-align: center;
     }
@@ -64,7 +63,7 @@ html,body {
 
 }
 /* detail */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 414px) {
     .detail_item {
         flex-direction: column;
         padding: 150px 0 !important;
@@ -90,13 +89,16 @@ html,body {
     
 }
 /* checkout */
-@media screen and (max-width: 739px) {
+@media screen and (max-width: 414px) {
     .checkout {
         display: flex;
         flex-direction: column;
         padding: 0;
         margin: 0;
         width: 100%;
+    }
+    .ckeckout_page {
+        padding: 10px !important;
     }
     .checkout_item {
         column-span: 12;
@@ -109,6 +111,28 @@ html,body {
     }
     .checkout_pay {
         margin-top: 50px;
+    }
+    .ant-tabs-extra-content {
+        display: none !important;
+    }
+    .ant-tabs-nav-wrap {
+        display: flex;
+        justify-content: center;
+    }
+    .table {
+        padding: 10px !important;
+    }
+    .ghe {
+        margin: 3px !important;
+    }
+    .checkout_result_content {
+        text-align: center;
+    }
+    .checkout_result_film {
+        justify-content: center !important;
+    }
+    .checkout_img {
+        margin: 0 auto;
     }
 
 }

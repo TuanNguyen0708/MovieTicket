@@ -239,7 +239,7 @@ export default function CheckoutTab(props) {
     }, [])
 
     const operations = <Fragment>
-        {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
+        {!_.isEmpty(userLogin) ? <Fragment className='checkout_info'> <button onClick={() => {
             history.push('/profile')
         }}><span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: 50, height: 50, margin: '0 auto' }} className='rounded-full bg-red-200 border-2'>{userLogin.taiKhoan.substr(0, 1)}</span>Hello ! {userLogin.taiKhoan} </button> <button className='text-blue-800' onClick={() => {
             localStorage.removeItem(USE_LOGIN);
@@ -251,22 +251,23 @@ export default function CheckoutTab(props) {
 
 
 
-    return <div className='p-5'>
+    return <div className='ckeckout_page p-5'>
         <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
             dispatch({
                 type: 'CHANGE_TAB_ACTIVE',
                 number: key
             })
         }}>
+            <TabPane tab={<NavLink style={{ textAlign: 'center' }} to='/'>HOME</NavLink>} key='3'>
+
+            </TabPane>
             <TabPane tab="CHỌN GHẾ" key="1">
                 <Checkout {...props} />
             </TabPane>
             <TabPane tab="KẾT QUẢ" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
-            <TabPane tab={<NavLink className='text-2xl' style={{ marginLeft: '100px' }} to='/'><HomeOutlined /></NavLink>} key='3'>
 
-            </TabPane>
         </Tabs>
     </div>
 };
@@ -284,10 +285,10 @@ function KetQuaDatVe(props) {
     const renderTicketItem = function () {
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             return <div className="p-4 lg:w-1/2" key={index}>
-                <div className="h-full flex sm:flex-row flex-col sm:justify-start justify-center sm:text-left">
-                    <div style={{ backgroundImage: `url(${ticket.hinhAnh})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '250px', height: '250px', backgroundRepeat: 'no-repeat' }}>
+                <div className="checkout_result_item h-full flex sm:flex-row flex-col sm:justify-start justify-center sm:text-left">
+                    <div className='checkout_img' style={{ backgroundImage: `url(${ticket.hinhAnh})`, backgroundPosition: 'center', backgroundSize: 'cover', width: '250px', height: '250px', backgroundRepeat: 'no-repeat' }}>
                     </div>
-                    <div className="flex-grow sm:pl-8">
+                    <div className="checkout_result_content flex-grow sm:pl-8">
                         <h1 className="title-font font-medium text-2xl text-gray-900">{ticket.tenPhim}</h1>
                         <h2 className="text-gray-500 mb-3">Ngày Chiếu: {moment(ticket.ngayDat).format('hh:mm A')} - {moment(ticket.ngayDat).format('DD/MM/YYYY')}</h2>
                         <h2 className="text-gray-500 mb-3">{_.first(ticket.danhSachGhe).tenCumRap} - Ghế: {ticket.danhSachGhe?.map((ghe, index) => {
@@ -307,7 +308,7 @@ function KetQuaDatVe(props) {
     return <section className="text-gray-600 body-font">
         <div className="container py-10 mx-auto">
             <h1 className="text-2xl text-center font-medium title-font mb-4 text-gray-900 tracking-widest">LỊCH SỬ ĐẶT VÉ</h1>
-            <div className="flex flex-wrap -m-4">
+            <div className="checkout_result_film flex flex-wrap">
                 {renderTicketItem()}
             </div>
         </div>

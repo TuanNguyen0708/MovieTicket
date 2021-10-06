@@ -42,7 +42,6 @@ export default function Detail(props) {
                             <div className='detail_text' style={{ paddingTop: '20px', width:'50%', paddingLeft:'20px' }}>
                                 <p className='text-sm'>{t('show date')}: {moment(PhimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                 <p className='text-3xl'>{PhimDetail.tenPhim}</p>
-                                <p>{PhimDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
@@ -98,10 +97,10 @@ export default function Detail(props) {
                             </div>
                         </TabPane>
                         <TabPane tab={`${t('information')}`} key="2">
-                        {t('information')}
+                        <p style={{padding:'20px 100px'}}>{PhimDetail.moTa}</p>
                         </TabPane>
                         <TabPane tab={`${t('rate')}`} key="3">
-                        {t('rate')}
+                        <p style={{textAlign:'center', fontSize:'30px', fontWeight:'700'}}>{PhimDetail.danhGia + '/10'}</p>
                         </TabPane>
                     </Tabs>
                 </div>
