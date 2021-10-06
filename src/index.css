@@ -51,6 +51,15 @@ html,body {
         width: 100% !important;
     }
 }
+/* homeMenu */
+@media screen and (max-width: 414px) {
+    .homeMenu {
+        display: none !important;
+    }
+    .mobileHomeMenu {
+        display: block !important;
+    }
+}
 /* footer */
 @media screen and (max-width: 414px) {
     .footer_logo {
@@ -133,6 +142,9 @@ html,body {
     }
     .checkout_img {
         margin: 0 auto;
+    }
+    .checkout_info {
+        padding: 20px 10px !important;
     }
 
 }

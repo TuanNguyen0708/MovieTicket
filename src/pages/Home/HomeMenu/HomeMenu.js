@@ -3,6 +3,7 @@ import { Tabs } from 'antd';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import MobileHomeMenu from '../../../mobile/MobileHomeMenu.js/MobileHomeMenu';
 
 const { TabPane } = Tabs;
 
@@ -17,8 +18,9 @@ export default function HomeMenu(props) {
         setState({ tabPosition: e.target.value });
     };
     const renderHeThongRap = () => {
+
         return props.heThongRapChieu?.map((heThongRap, index) => {
-            return <TabPane key={index} tab={<img src={heThongRap.logo} className='rounded-full' width='50' />}>
+             return <TabPane key={index} tab={<img src={heThongRap.logo} className='rounded-full' width='50' />}>
                 <Tabs tabPosition={tabPosition}>
                     {heThongRap.lstCumRap?.slice(0,5).map((cumRap, index) => {
                         return <TabPane key={index} tab={
@@ -56,7 +58,7 @@ export default function HomeMenu(props) {
                         </TabPane>
                     })}
                 </Tabs>
-            </TabPane>
+            </TabPane> 
         })
     }
 
@@ -64,9 +66,13 @@ export default function HomeMenu(props) {
 
     return (
         < >
-            <Tabs tabPosition={tabPosition} style={{width:'80%', margin:'100px auto'}}>
+            <Tabs className='homeMenu' tabPosition={tabPosition} style={{width:'80%', margin:'100px auto'}}>
                 {renderHeThongRap()}
             </Tabs>
+            <div className='mobileHomeMenu' style ={{margin: '50px 30px', display:'none'}}>
+                <MobileHomeMenu />
+
+            </div>
         </>
     )
 }

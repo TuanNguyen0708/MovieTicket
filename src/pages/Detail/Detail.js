@@ -97,10 +97,10 @@ export default function Detail(props) {
                             </div>
                         </TabPane>
                         <TabPane tab={`${t('information')}`} key="2">
-                        <p style={{padding:'20px 100px'}}>{PhimDetail.moTa}</p>
+                        <p className='checkout_info' style={{padding:'20px 100px'}}>{PhimDetail.moTa}</p>
                         </TabPane>
                         <TabPane tab={`${t('rate')}`} key="3">
-                        <p style={{textAlign:'center', fontSize:'30px', fontWeight:'700'}}>{PhimDetail.danhGia + '/10'}</p>
+                        <p style={{textAlign:'center', fontSize:'30px', fontWeight:'700', padding:'20px 0'}}>{PhimDetail.danhGia + '/10'}</p>
                         </TabPane>
                     </Tabs>
                 </div>
