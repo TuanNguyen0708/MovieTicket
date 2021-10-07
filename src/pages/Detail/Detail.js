@@ -10,6 +10,8 @@ import moment from 'moment';
 import { Rate } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import MobileHomeMenu from '../../mobile/MobileHomeMenu.js/MobileHomeMenu';
+import MobileDetail from '../../mobile/MobileDetail/MobileDetail';
 
 const { TabPane } = Tabs;
 
@@ -61,7 +63,7 @@ export default function Detail(props) {
                 <div className='container  mt-10 bg-white'>
                     <Tabs defaultActiveKey="1" centered>
                         <TabPane tab={`${t('showtimes')}`} key="1">
-                            <div>
+                            <div className='detail_showtimeWeb'>
                                 <Tabs tabPosition={'left'}>
                                     {PhimDetail.heThongRapChieu?.map((htr, index) => {
                                         return <TabPane tab={
@@ -95,7 +97,11 @@ export default function Detail(props) {
 
                                 </Tabs>
                             </div>
+                            <div className='detail_showtimeMobile' style={{display:'none'}}>
+                                <MobileDetail />
+                            </div>
                         </TabPane>
+
                         <TabPane tab={`${t('information')}`} key="2">
                         <p className='checkout_info' style={{padding:'20px 100px'}}>{PhimDetail.moTa}</p>
                         </TabPane>

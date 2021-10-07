@@ -21,6 +21,13 @@ export default function MobileHomeMenu(props) {
                             {cumRap.danhSachPhim?.slice(0, 5).map((phim, index2) => {
                                 return <Menu.Item key={index2} icon={<img src={phim.hinhAnh} width='40' height='40' />} >
                                     {phim.tenPhim}
+                                    <div className='mobileHomeMenu_hour'>
+                                        {phim.lstLichChieuTheoPhim?.slice(0, 3).map((lichChieu, index) => {
+                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} style={{fontWeight:'600'}}>
+                                                {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
+                                            </NavLink>
+                                        })}
+                                    </div>
                                 </Menu.Item>
                             })}
                         </SubMenu>

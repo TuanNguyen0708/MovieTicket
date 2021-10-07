@@ -59,6 +59,15 @@ html,body {
     .mobileHomeMenu {
         display: block !important;
     }
+    .ant-menu-submenu-title {
+        height: 70px !important;
+    }
+    .ant-menu-item {
+        height: 70px !important;
+    }
+    .mobileHomeMenu_hour > a {
+        padding-right: 5px !important;
+    }
 }
 /* footer */
 @media screen and (max-width: 414px) {
@@ -94,6 +103,12 @@ html,body {
         width: 100% !important;
         text-align: center;
         padding-right: 20px;
+    }
+    .detail_showtimeWeb {
+        display: none !important;
+    }
+    .detail_showtimeMobile {
+        display: block !important;
     }
     
 }
