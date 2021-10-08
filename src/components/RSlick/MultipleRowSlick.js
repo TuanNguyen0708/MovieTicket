@@ -61,6 +61,11 @@ const MultipleRows = (props) => {
 
   return (
     <div className='mt-5'>
+      <div style={{textAlign:'center', fontSize:'20px'}}>
+      <h1 style={{color:'red'}}>ĐỂ ĐĂNG NHẬP VÀO TRANG QUẢN TRỊ VUI LÒNG DÙNG TÀI KHOẢN VÀ MẬT KHẨU NÀY</h1>
+      <h2>Tài Khoản: tuan002</h2>
+      <h2>Mật Khẩu: 123123</h2>
+      </div>
       <div className='multiple' style={{ marginLeft: '45px' }}>
         <button type="button" className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold rounded mr-3`} onClick={() => {
           const action = { type: SET_PHIM_DANG_CHIEU }
