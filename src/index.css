@@ -163,3 +163,9 @@ html,body {
     }
 
 }
+/* showtime */
+@media screen and (max-width: 414px) {
+    .ant-select.ant-select-single.ant-select-show-arrow {
+        margin: 0 !important;
+    }
+}

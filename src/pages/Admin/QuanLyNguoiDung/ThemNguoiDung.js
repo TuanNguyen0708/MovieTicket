@@ -98,7 +98,6 @@ const ThemNguoiDung = () => {
                 </Form.Item>
                 <div className='text-center m-10'>
                     <button className='ant-btn ant-btn-primary mr-4' type='submit'>Thêm Người Dùng</button>
-                    <button className='ant-btn ant-btn-danger' type='submit'>Lưu Thay Đổi</button>
                 </div>
             </Form>
         </>

@@ -154,8 +154,8 @@ return (
         <img style={{ width: '100px', height: '100px' }} src={imgSrc === '' ? ThongTinPhim.hinhAnh : imgSrc} />
       </Form.Item>
 
-      <Form.Item>
-        <button className='ant-btn ant-btn-primary' type='submit'>Cập Nhật</button>
+      <Form.Item style={{textAlign:'center'}}>
+        <button className='ant-btn ant-btn-primary'  type='submit'>Cập Nhật</button>
       </Form.Item>
     </Form>
   </>

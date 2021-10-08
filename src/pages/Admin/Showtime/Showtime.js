@@ -90,7 +90,7 @@ export default function Showtime(props) {
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
                 initialValues={{ remember: true }}>
-                <h3>Tạo Lịch Chiếu - {props.match.params.tenPhim}</h3>
+                <h3 style={{marginBottom:'40px'}}>Tạo Lịch Chiếu - {props.match.params.tenPhim}</h3>
                 <Form.Item label="Hệ Thống Rạp">
                     <Cascader options={renderHeThongRap()} onChange={handleChangeHeThongRap} placeholder="Chọn Hệ Thống Rạp" />
                 </Form.Item>

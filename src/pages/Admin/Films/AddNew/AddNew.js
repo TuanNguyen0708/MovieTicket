@@ -143,9 +143,9 @@ return (
         <img style={{ width: '100px', height: '100px' }} src={imgSrc} />
       </Form.Item>
 
-      <Form.Item>
-        <button className='ant-btn ant-btn-primary' type='submit'>Thêm Phim</button>
-      </Form.Item>
+      <div>
+        <button style={{display:'block', margin:'0 auto'}} className='ant-btn ant-btn-primary' type='submit'>Thêm Phim</button>
+      </div>
     </Form>
   </>
 );
