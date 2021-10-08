@@ -71,7 +71,7 @@ const AdminTemplate = (props) => { //path, exact, Component
                             <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" style={{ height: '40px', paddingLeft: '15px' }} alt="..." />
                         </NavLink>
                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                            <Menu.Item key="1" icon={<UserOutlined />}>
+                            <Menu.Item key="9" icon={<UserOutlined />}>
                                 <NavLink to="/admin/users">Users</NavLink>
                             </Menu.Item>
                             <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
@@ -111,46 +111,51 @@ const AdminTemplate = (props) => { //path, exact, Component
             </Fragment>
         }} />
     }
-    return (
-        <Layout style={{ minHeight: '100vh' }}>
-            <div className="text-gray-600 body-font" style={{ backgroundColor: 'rgb(0 21 41)' }}>
-                <div className="container mx-auto flex flex-wrap flex-col md:flex-row items-center" style={{ padding: '20px 0' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                        <NavLink to='/' className="logo" style={{ cursor: 'pointer' }} >
-                            <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" style={{ height: '40px' }} alt="..." />
-                        </NavLink>
-                        <div>{operations}</div>
-                    </div>
+    return <Route {...restProps} render={(propsRoute) => { //props.location,props.history,props.match
+
+        return <div className="text-gray-600 body-font" style={{ backgroundColor: 'rgb(0 21 41)' }}>
+            <div className="container mx-auto flex flex-wrap flex-col md:flex-row items-center" style={{ padding: '20px 0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                    <NavLink to='/' className="logo" style={{ cursor: 'pointer' }} >
+                        <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" style={{ height: '40px' }} alt="..." />
+                    </NavLink>
+                    <div>{operations}</div>
                 </div>
-                <Menu mode="inline" style={{ width: '100%' }}>
-                    <SubMenu key="sub1" icon={<MailOutlined />} title="Admin">
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            <NavLink to="/admin/users">Users</NavLink>
-                        </Menu.Item>
-
-                        <SubMenu key="g2" title="Films">
-                            <Menu.Item key="2" icon={<FileOutlined />}>
-                                <NavLink to="/admin/films">Films</NavLink>
-                            </Menu.Item>
-                            <Menu.Item key="3" icon={<FileOutlined />}>
-                                <NavLink to="/admin/films/addnew">Add new</NavLink>
-                            </Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="g3" title="Quản Lý Người Dùng">
-                            <Menu.Item key="4" icon={<FileOutlined />}>
-                                <NavLink to="/admin/quanlynguoidung">QL Người Dùng</NavLink>
-                            </Menu.Item>
-                            <Menu.Item key="5" icon={<FileOutlined />}>
-                                <NavLink to="/admin/quanlynguoidung/themnguoidung">Thêm Người Dùng</NavLink>
-                            </Menu.Item>
-                        </SubMenu>
-                    </SubMenu>
-                </Menu>
             </div>
+            <Menu mode="inline" style={{ width: '100%' }}>
+                <SubMenu key="sub1" icon={<MailOutlined />} title="Admin">
+                    <Menu.Item key="1" icon={<UserOutlined />}>
+                        <NavLink to="/admin/users">Users</NavLink>
+                    </Menu.Item>
 
-        </Layout>
-    )
+                    <SubMenu key="g2" title="Films">
+                        <Menu.Item key="2" icon={<FileOutlined />}>
+                            <NavLink to="/admin/films">Films</NavLink>
+                        </Menu.Item>
+                        <Menu.Item key="3" icon={<FileOutlined />}>
+                            <NavLink to="/admin/films/addnew">Add new</NavLink>
+                        </Menu.Item>
+                    </SubMenu>
+                    <SubMenu key="g3" title="Quản Lý Người Dùng">
+                        <Menu.Item key="4" icon={<FileOutlined />}>
+                            <NavLink to="/admin/quanlynguoidung">QL Người Dùng</NavLink>
+                        </Menu.Item>
+                        <Menu.Item key="5" icon={<FileOutlined />}>
+                            <NavLink to="/admin/quanlynguoidung/themnguoidung">Thêm Người Dùng</NavLink>
+                        </Menu.Item>
+                    </SubMenu>
+                </SubMenu>
+            </Menu>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: '85vh', backgroundColor:'#fff', borderTop:'2px solid red' }}>
+                <Component {...propsRoute} />
+            </div>
+        </div>
+
+    }} />
+
 }
 
 
 export default AdminTemplate;
+
+
