@@ -51,9 +51,8 @@ function App() {
       <AdminTemplate path='/admin/quanlynguoidung' exact Component={QuanLyNguoiDung} />
       <AdminTemplate path='/admin/quanlynguoidung/themnguoidung' exact Component={ThemNguoiDung} />
       <AdminTemplate path='/admin/quanlynguoidung/editnguoidung/:taiKhoan' exact Component={EditNguoiDung} />
-
       <AdminTemplate path='/admin/users' exact Component={Dashboad} />
-      {/* <AdminTemplate path='/admin/showtime' exact Component={Showtime} /> */}
+      
       </Switch>
       <HomeTemplate path='/' exact Component={Home} />
     </Router>
